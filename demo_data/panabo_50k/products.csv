@@ -1,0 +1,9 @@
+product_id,variant_id,product_name,category_id,unit_label,package_size,data_kind
+demo-beverages-product-01,demo-beverages-product-01-standard,Demo Beverages 1,demo-beverages,bottle,500 mL bottle,synthetic
+demo-beverages-product-02,demo-beverages-product-02-standard,Demo Beverages 2,demo-beverages,bottle,500 mL bottle,synthetic
+demo-snacks-product-01,demo-snacks-product-01-standard,Demo Snacks 1,demo-snacks,pack,30 g pack,synthetic
+demo-snacks-product-02,demo-snacks-product-02-standard,Demo Snacks 2,demo-snacks,pack,30 g pack,synthetic
+demo-canned-goods-product-01,demo-canned-goods-product-01-standard,Demo Canned goods 1,demo-canned-goods,can,155 g can,synthetic
+demo-canned-goods-product-02,demo-canned-goods-product-02-standard,Demo Canned goods 2,demo-canned-goods,can,155 g can,synthetic
+demo-instant-noodles-product-01,demo-instant-noodles-product-01-standard,Demo Instant noodles 1,demo-instant-noodles,pack,55 g pack,synthetic
+demo-instant-noodles-product-02,demo-instant-noodles-product-02-standard,Demo Instant noodles 2,demo-instant-noodles,pack,55 g pack,synthetic

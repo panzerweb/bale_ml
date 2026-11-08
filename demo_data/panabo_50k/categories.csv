@@ -1,0 +1,5 @@
+category_id,category_label,unit_label,package_size,unit_policy,data_kind
+demo-beverages,Beverages,bottle,500 mL bottle,recorded_sale_units,synthetic
+demo-snacks,Snacks,pack,30 g pack,recorded_sale_units,synthetic
+demo-canned-goods,Canned goods,can,155 g can,recorded_sale_units,synthetic
+demo-instant-noodles,Instant noodles,pack,55 g pack,recorded_sale_units,synthetic

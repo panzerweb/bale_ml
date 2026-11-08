@@ -1,0 +1,169 @@
+<div id="md-preview-stage" class="viz-dotted-background">
+  <section id="md-model-preview" aria-label="BALE forecast model selection preview">
+    <header class="md-header">
+      <div><span class="md-brand">BALE / Market Demand</span><h2>Sales around your store</h2></div>
+      <span class="md-pill">Demo data</span>
+    </header>
+    <p class="md-caption">Interface preview · example forecast values, not trained-model results</p>
+    <div class="md-filters">
+      <label>Product category<select id="md-category"><option value="demo-beverages">Beverages · 500 mL bottles</option><option value="demo-snacks">Snacks · 30 g packs</option><option value="demo-canned-goods">Canned goods · 155 g cans</option><option value="demo-instant-noodles">Instant noodles · 55 g packs</option></select></label>
+      <label>Barangay<select id="md-area"><option value="1102315009">Gredu</option><option value="1102315025">New Pandan</option><option value="1102315028">Salvacion</option></select></label>
+      <label class="md-model-field">Forecast model<select id="md-model"><option value="recommended">Recommended · LightGBM</option><option value="lightgbm">LightGBM</option><option value="xgboost">XGBoost</option><option value="random_forest">Random Forest</option></select></label>
+    </div>
+    <div class="md-status" aria-live="polite"><span id="md-displayed"></span><span>Run recommends <strong>LightGBM</strong></span></div>
+    <p class="md-caption">Data through Nov 8, 2026 · Forecast Nov 9–15 · Philippine dates</p>
+    <div class="md-stats">
+      <article><span>Expected next seven days</span><strong id="md-total"></strong></article>
+      <article><span>Compared with previous week</span><strong id="md-change"></strong></article>
+      <article><span>Recent reporting</span><strong>28 / 28 days complete</strong></article>
+    </div>
+    <div class="md-chart-heading"><h3 id="md-chart-title"></h3><span class="md-caption">Past 28 days + seven-day forecast</span></div>
+    <div class="md-legend"><span><i class="md-swatch md-actual"></i>Recorded sales</span><span><i class="md-swatch md-forecast"></i>Selected forecast</span></div>
+    <div id="md-chart" aria-label="Daily recorded sales and selected forecast"></div>
+    <details class="md-details">
+      <summary>How did this model perform?</summary>
+      <div id="md-performance" aria-live="polite"></div>
+    </details>
+    <details class="md-details">
+      <summary>Seven-day breakdown</summary>
+      <table><caption class="md-caption" id="md-table-caption"></caption><thead><tr><th>Date</th><th>Expected sales</th></tr></thead><tbody id="md-daily"></tbody></table>
+    </details>
+    <p class="md-caption md-footnote">Participating-store sales estimates · no prediction interval is available</p>
+  </section>
+</div>
+<style>
+#md-preview-stage { padding:18px; }
+#md-model-preview { --md-bg:light-dark(#ffffff,#191e22);--md-fg:light-dark(#1e3034,#eef4f3);--md-muted:light-dark(#52676b,#b4c4c7);--md-line:light-dark(#dce6e5,#39494d);--md-soft:light-dark(#f1f7f6,#253330);--md-accent:light-dark(#087766,#66d4bc);--md-history:light-dark(#536c7c,#becbd6);color:var(--md-fg);background:var(--md-bg);font-family:system-ui,sans-serif;font-size:14px;line-height:1.5;border:1px solid var(--md-line);border-radius:14px;padding:24px;box-shadow:0 10px 28px light-dark(#142a2420,#00000030); }
+#md-model-preview * { box-sizing:border-box; }
+#md-model-preview h2 {font-size:23px;font-weight:500;margin:3px 0 0;line-height:1.3;}
+#md-model-preview h3 {font-size:16px;font-weight:500;margin:0;}
+#md-model-preview p {margin:0;}
+#md-model-preview .md-header {display:flex;justify-content:space-between;align-items:start;gap:16px;}
+#md-model-preview .md-brand {font-size:12px;color:var(--md-muted);letter-spacing:.03em;}
+#md-model-preview .md-pill {font-size:12px;background:var(--md-soft);color:var(--md-accent);padding:4px 9px;border-radius:20px;white-space:nowrap;}
+#md-model-preview .md-caption {font-size:12px;color:var(--md-muted);}
+#md-model-preview > .md-caption:first-of-type {margin-top:9px;}
+#md-model-preview .md-filters {display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
+#md-model-preview label {display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:500;min-width:0;}
+#md-model-preview select {font:inherit;font-size:14px;color:var(--md-fg);background:var(--md-bg);border:1px solid var(--md-line);border-radius:7px;padding:10px 9px;width:100%;min-width:0;}
+#md-model-preview .md-model-field {grid-column:1 / -1;}
+#md-model-preview .md-status {display:flex;gap:8px 18px;flex-wrap:wrap;justify-content:space-between;padding:12px 0 6px;font-size:12px;}
+#md-model-preview strong {font-weight:500;}
+#md-model-preview .md-stats {display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0 24px;}
+#md-model-preview .md-stats article {border-top:2px solid var(--md-line);padding-top:9px;min-width:0;}
+#md-model-preview .md-stats span {display:block;font-size:12px;color:var(--md-muted);}
+#md-model-preview .md-stats strong {display:block;font-size:18px;margin-top:4px;font-variant-numeric:tabular-nums;}
+#md-model-preview .md-chart-heading {display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;align-items:center;}
+#md-model-preview .md-legend {display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin:8px 0 4px;}
+#md-model-preview .md-legend span {display:flex;align-items:center;gap:7px;}
+#md-model-preview .md-swatch {display:inline-block;width:20px;height:0;border-top:2px solid var(--md-history);}
+#md-model-preview .md-forecast {border-color:var(--md-accent);border-top-style:dashed;}
+#md-model-preview #md-chart {width:100%;}
+#md-model-preview #md-chart svg {display:block;width:100%;overflow:visible;}
+#md-model-preview .md-details {border-top:1px solid var(--md-line);padding:12px 0;}
+#md-model-preview summary {font-weight:500;cursor:default;}
+#md-model-preview .md-details > div {margin-top:10px;font-size:13px;}
+#md-model-preview .md-performance-values {display:flex;flex-wrap:wrap;gap:10px 24px;margin:7px 0;}
+#md-model-preview .md-performance-values span {font-variant-numeric:tabular-nums;}
+#md-model-preview table {width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
+#md-model-preview caption {text-align:left;padding-bottom:7px;}
+#md-model-preview th,#md-model-preview td {text-align:left;border-bottom:1px solid var(--md-line);padding:7px 0;font-weight:400;}
+#md-model-preview th:last-child,#md-model-preview td:last-child {text-align:right;font-variant-numeric:tabular-nums;}
+#md-model-preview .md-footnote {margin-top:8px;}
+@media(max-width:520px){#md-preview-stage{padding:8px;}#md-model-preview{padding:16px;}#md-model-preview .md-filters{grid-template-columns:1fr;}#md-model-preview .md-model-field{grid-column:auto;}#md-model-preview .md-stats{grid-template-columns:1fr;gap:10px;}#md-model-preview .md-stats article{display:flex;justify-content:space-between;align-items:center;gap:12px;}#md-model-preview .md-stats strong{font-size:16px;text-align:right;margin:0;}#md-model-preview select{font-size:16px;}}
+</style>
+<script>
+(() => {
+  const root = document.getElementById('md-model-preview');
+  const el = id => root.querySelector('#md-' + id);
+  const names = {recommended:'LightGBM',lightgbm:'LightGBM',xgboost:'XGBoost',random_forest:'Random Forest'};
+  const areas = {'1102315009':'Gredu','1102315025':'New Pandan','1102315028':'Salvacion'};
+  const categories = {'demo-beverages':['Beverages','bottles'],'demo-snacks':['Snacks','packs'],'demo-canned-goods':['Canned goods','cans'],'demo-instant-noodles':['Instant noodles','packs']};
+  const histories = {
+    '1102315009':{'demo-beverages':[6,11,1,4,0,17,3,0,14,7,0,4,14,5,4,7,11,7,8,1,7,7,0,8,1,16,8,3],'demo-canned-goods':[0,7,3,0,2,8,1,0,1,8,1,4,3,1,2,0,2,5,5,2,11,8,6,1,0,1,3,2],'demo-instant-noodles':[4,2,5,8,3,1,5,6,9,1,0,7,11,14,5,9,6,0,5,8,0,4,7,15,4,5,6,5],'demo-snacks':[2,4,1,12,4,4,5,7,0,3,7,10,0,0,8,20,7,10,4,15,25,7,1,11,2,0,6,7]},
+    '1102315025':{'demo-beverages':[11,11,0,5,4,8,7,5,7,4,2,3,3,5,4,4,4,11,7,3,7,2,4,2,2,12,2,9],'demo-canned-goods':[0,4,0,3,1,5,0,1,2,6,2,2,2,9,3,0,0,5,0,1,1,8,2,0,0,4,10,4],'demo-instant-noodles':[0,2,5,3,0,1,10,6,6,10,8,3,2,1,9,0,9,6,10,8,1,0,7,3,0,6,16,1],'demo-snacks':[3,8,4,1,5,3,0,5,3,1,3,5,7,1,7,1,3,4,4,1,3,10,6,3,6,1,3,4]},
+    '1102315028':{'demo-beverages':[4,3,2,5,3,10,1,2,1,5,4,4,7,8,0,5,3,4,4,6,7,5,12,6,1,5,8,6],'demo-canned-goods':[2,0,0,1,5,3,0,4,5,2,0,3,1,7,6,5,3,1,2,6,2,0,0,2,1,1,3,2],'demo-instant-noodles':[4,2,2,5,3,6,4,5,0,3,6,3,1,1,5,2,0,4,6,3,3,5,2,6,1,4,8,1],'demo-snacks':[3,4,1,1,5,8,4,4,6,7,2,3,11,0,5,5,4,0,0,6,9,1,1,2,1,4,0,5]}
+  };
+  const state = {area:'1102315009',category:'demo-beverages',model:'recommended'};
+  const modelShapes = {lightgbm:[.83,.96,.9,1.04,.92,1.03,.94],xgboost:[1.02,.91,1.1,.95,1.15,1.02,1.12],random_forest:[.88,1.12,.87,1.14,.89,.98,1.02]};
+  let lastFuture = null, animation = null;
+  const number = value => new Intl.NumberFormat('en',{maximumFractionDigits:1}).format(value);
+  function values(model) {
+    const method = model === 'recommended' ? 'lightgbm' : model;
+    const h = histories[state.area][state.category];
+    // Illustrative UI predictions only: deterministic weekday averages with example shapes.
+    const future = modelShapes[method].map((factor,i) => (h[i]+h[i+7]+h[i+14]+h[i+21])/4*factor);
+    return {h,future,method};
+  }
+  function svgMarkup(h,future,fromFuture) {
+    const width = Math.max(240,el('chart').clientWidth || 620), height = 240;
+    const left = 32,right=12,top=26,bottom=33;
+    const maxValue = Math.ceil(Math.max(...h,...Object.keys(modelShapes).flatMap(m=>values(m).future),1)/5)*5;
+    const x=i=>left+i*(width-left-right)/34;
+    const y=v=>height-bottom-v*(height-top-bottom)/maxValue;
+    const points=vals=>vals.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+    const fp=vals=>vals.map((v,i)=>`${x(28+i)},${y(v)}`).join(' ');
+    let markup=`<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${areas[state.area]} ${categories[state.category][0]}: 28 days of recorded sales and illustrative seven-day ${names[state.model]} forecast"><text x="${left}" y="13" fill="var(--md-muted)" font-size="12">${categories[state.category][1]} / day</text>`;
+    for(let i=0;i<=2;i++){const v=maxValue*i/2;markup+=`<line x1="${left}" y1="${y(v)}" x2="${width-right}" y2="${y(v)}" stroke="var(--md-line)"/><text x="${left-7}" y="${y(v)+4}" text-anchor="end" fill="var(--md-muted)" font-size="12">${number(v)}</text>`;}
+    const boundary=x(27.5);
+    markup+=`<line x1="${boundary}" y1="${top}" x2="${boundary}" y2="${height-bottom}" stroke="var(--md-muted)" stroke-dasharray="3 4"/><text x="${width-right}" y="13" text-anchor="end" fill="var(--md-muted)" font-size="12">Forecast →</text>`;
+    markup+=`<polyline points="${points(h)}" fill="none" stroke="var(--md-history)" stroke-width="2"/><polyline id="md-future-line" points="${fp(fromFuture || future)}" fill="none" stroke="var(--md-accent)" stroke-width="2.5" stroke-dasharray="5 4"/>`;
+    for(const [i,label] of [[0,'Oct 12'],[14,'Oct 26'],[27,'Nov 8'],[34,'Nov 15']]){
+      if(width<390 && i===27)continue;
+      markup+=`<text x="${x(i)}" y="${height-9}" text-anchor="${i===0?'start':i===34?'end':'middle'}" fill="var(--md-muted)" font-size="12">${label}</text>`;
+    }
+    markup+='</svg>';
+    el('chart').innerHTML=markup;
+    return fp;
+  }
+  function render(animate=false) {
+    if(animation!==null)cancelAnimationFrame(animation);
+    const {h,future,method}=values(state.model);
+    const units=categories[state.category][1], total=future.reduce((a,b)=>a+b,0), previous=h.slice(-7).reduce((a,b)=>a+b,0);
+    el('displayed').textContent=`Viewing ${names[state.model]}${state.model==='recommended'?' · recommended':''}`;
+    el('total').textContent=`${number(total)} ${units}`;
+    el('change').textContent=previous?`${total>=previous?'+':''}${number((total/previous-1)*100)}%`:'Unavailable';
+    el('chart-title').textContent=`${areas[state.area]} · ${categories[state.category][0]}`;
+    el('table-caption').textContent=`Illustrative ${names[state.model]} forecast · ${units}`;
+    el('daily').innerHTML=future.map((v,i)=>`<tr><td>Nov ${9+i}, 2026</td><td>${number(v)} ${units}</td></tr>`).join('');
+    if(method==='lightgbm'){
+      el('performance').innerHTML='<p>Final testing · all evaluated barangays and categories</p><div class="md-performance-values"><span>MAE <strong>1.98 units/day/group</strong></span><span>RMSE <strong>2.66</strong></span><span>WAPE <strong>63.94%</strong></span></div><p>About 9.6% lower average error than the weekday-average baseline.</p><p class="md-caption">Scores from your pasted synthetic run; not specific to the selected barangay. Preview forecast values above are illustrative.</p>';
+    }else{
+      el('performance').innerHTML=`<p>${names[state.model]} was not included in this run's final test.</p><p class="md-caption">Validation scores can be shown separately. They were not supplied for this preview.</p>`;
+    }
+    const reduce=globalThis.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const before=animate&&!reduce?lastFuture:null;
+    const fp=svgMarkup(h,future,before);
+    if(before){
+      let start;
+      const frame=t=>{
+        if(start===undefined)start=t;
+        const fraction=Math.min(1,(t-start)/350);
+        root.querySelector('#md-future-line').setAttribute('points',fp(future.map((v,i)=>before[i]+(v-before[i])*fraction)));
+        if(fraction<1)animation=requestAnimationFrame(frame);else animation=null;
+      };
+      animation=requestAnimationFrame(frame);
+    }
+    lastFuture=future;
+  }
+  function applySaved(saved){
+    if(saved?.kind!=='market-demand-selector-v1')return;
+    if(saved.area in areas)state.area=saved.area;
+    if(saved.category in categories)state.category=saved.category;
+    if(saved.model in names)state.model=saved.model;
+  }
+  applySaved(globalThis.window?.openai?.widgetState?.modelContent);
+  function syncControls(){for(const key of ['area','category','model'])el(key).value=state[key];}
+  syncControls();
+  for(const key of ['area','category','model'])el(key).addEventListener('change',()=>{
+    state[key]=el(key).value;
+    render(true);
+    globalThis.window?.openai?.setWidgetState?.({modelContent:{kind:'market-demand-selector-v1',...state},privateContent:null})?.catch(()=>{});
+  });
+  render();
+  if(globalThis.ResizeObserver)new ResizeObserver(()=>render()).observe(el('chart'));
+  globalThis.window?.addEventListener('openai:set_globals',event=>{
+    applySaved(event.detail?.globals?.widgetState?.modelContent);syncControls();render();
+  });
+})();
+</script>

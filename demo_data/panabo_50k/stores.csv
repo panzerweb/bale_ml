@@ -1,0 +1,81 @@
+store_id,store_name,area_id,city,barangay,data_kind
+demo-panabo-1102315001-01,Demo A. O. Floirendo Store 1,1102315001,Panabo,A. O. Floirendo,synthetic
+demo-panabo-1102315001-02,Demo A. O. Floirendo Store 2,1102315001,Panabo,A. O. Floirendo,synthetic
+demo-panabo-1102315002-01,Demo Datu Abdul Dadia Store 1,1102315002,Panabo,Datu Abdul Dadia,synthetic
+demo-panabo-1102315002-02,Demo Datu Abdul Dadia Store 2,1102315002,Panabo,Datu Abdul Dadia,synthetic
+demo-panabo-1102315003-01,Demo Buenavista Store 1,1102315003,Panabo,Buenavista,synthetic
+demo-panabo-1102315003-02,Demo Buenavista Store 2,1102315003,Panabo,Buenavista,synthetic
+demo-panabo-1102315004-01,Demo Cacao Store 1,1102315004,Panabo,Cacao,synthetic
+demo-panabo-1102315004-02,Demo Cacao Store 2,1102315004,Panabo,Cacao,synthetic
+demo-panabo-1102315005-01,Demo Cagangohan Store 1,1102315005,Panabo,Cagangohan,synthetic
+demo-panabo-1102315005-02,Demo Cagangohan Store 2,1102315005,Panabo,Cagangohan,synthetic
+demo-panabo-1102315006-01,Demo Consolacion Store 1,1102315006,Panabo,Consolacion,synthetic
+demo-panabo-1102315006-02,Demo Consolacion Store 2,1102315006,Panabo,Consolacion,synthetic
+demo-panabo-1102315007-01,Demo Dapco Store 1,1102315007,Panabo,Dapco,synthetic
+demo-panabo-1102315007-02,Demo Dapco Store 2,1102315007,Panabo,Dapco,synthetic
+demo-panabo-1102315009-01,Demo Gredu Store 1,1102315009,Panabo,Gredu,synthetic
+demo-panabo-1102315009-02,Demo Gredu Store 2,1102315009,Panabo,Gredu,synthetic
+demo-panabo-1102315010-01,Demo J.P. Laurel Store 1,1102315010,Panabo,J.P. Laurel,synthetic
+demo-panabo-1102315010-02,Demo J.P. Laurel Store 2,1102315010,Panabo,J.P. Laurel,synthetic
+demo-panabo-1102315011-01,Demo Kasilak Store 1,1102315011,Panabo,Kasilak,synthetic
+demo-panabo-1102315011-02,Demo Kasilak Store 2,1102315011,Panabo,Kasilak,synthetic
+demo-panabo-1102315012-01,Demo Katipunan Store 1,1102315012,Panabo,Katipunan,synthetic
+demo-panabo-1102315012-02,Demo Katipunan Store 2,1102315012,Panabo,Katipunan,synthetic
+demo-panabo-1102315013-01,Demo Katualan Store 1,1102315013,Panabo,Katualan,synthetic
+demo-panabo-1102315013-02,Demo Katualan Store 2,1102315013,Panabo,Katualan,synthetic
+demo-panabo-1102315014-01,Demo Kauswagan Store 1,1102315014,Panabo,Kauswagan,synthetic
+demo-panabo-1102315014-02,Demo Kauswagan Store 2,1102315014,Panabo,Kauswagan,synthetic
+demo-panabo-1102315015-01,Demo Kiotoy Store 1,1102315015,Panabo,Kiotoy,synthetic
+demo-panabo-1102315015-02,Demo Kiotoy Store 2,1102315015,Panabo,Kiotoy,synthetic
+demo-panabo-1102315016-01,Demo Little Panay Store 1,1102315016,Panabo,Little Panay,synthetic
+demo-panabo-1102315016-02,Demo Little Panay Store 2,1102315016,Panabo,Little Panay,synthetic
+demo-panabo-1102315017-01,Demo Lower Panaga Store 1,1102315017,Panabo,Lower Panaga,synthetic
+demo-panabo-1102315017-02,Demo Lower Panaga Store 2,1102315017,Panabo,Lower Panaga,synthetic
+demo-panabo-1102315018-01,Demo Mabunao Store 1,1102315018,Panabo,Mabunao,synthetic
+demo-panabo-1102315018-02,Demo Mabunao Store 2,1102315018,Panabo,Mabunao,synthetic
+demo-panabo-1102315019-01,Demo Maduao Store 1,1102315019,Panabo,Maduao,synthetic
+demo-panabo-1102315019-02,Demo Maduao Store 2,1102315019,Panabo,Maduao,synthetic
+demo-panabo-1102315020-01,Demo Malativas Store 1,1102315020,Panabo,Malativas,synthetic
+demo-panabo-1102315020-02,Demo Malativas Store 2,1102315020,Panabo,Malativas,synthetic
+demo-panabo-1102315021-01,Demo Manay Store 1,1102315021,Panabo,Manay,synthetic
+demo-panabo-1102315021-02,Demo Manay Store 2,1102315021,Panabo,Manay,synthetic
+demo-panabo-1102315022-01,Demo Nanyo Store 1,1102315022,Panabo,Nanyo,synthetic
+demo-panabo-1102315022-02,Demo Nanyo Store 2,1102315022,Panabo,Nanyo,synthetic
+demo-panabo-1102315023-01,Demo New Malaga Store 1,1102315023,Panabo,New Malaga,synthetic
+demo-panabo-1102315023-02,Demo New Malaga Store 2,1102315023,Panabo,New Malaga,synthetic
+demo-panabo-1102315024-01,Demo New Malitbog Store 1,1102315024,Panabo,New Malitbog,synthetic
+demo-panabo-1102315024-02,Demo New Malitbog Store 2,1102315024,Panabo,New Malitbog,synthetic
+demo-panabo-1102315025-01,Demo New Pandan Store 1,1102315025,Panabo,New Pandan,synthetic
+demo-panabo-1102315025-02,Demo New Pandan Store 2,1102315025,Panabo,New Pandan,synthetic
+demo-panabo-1102315026-01,Demo New Visayas Store 1,1102315026,Panabo,New Visayas,synthetic
+demo-panabo-1102315026-02,Demo New Visayas Store 2,1102315026,Panabo,New Visayas,synthetic
+demo-panabo-1102315027-01,Demo Quezon Store 1,1102315027,Panabo,Quezon,synthetic
+demo-panabo-1102315027-02,Demo Quezon Store 2,1102315027,Panabo,Quezon,synthetic
+demo-panabo-1102315028-01,Demo Salvacion Store 1,1102315028,Panabo,Salvacion,synthetic
+demo-panabo-1102315028-02,Demo Salvacion Store 2,1102315028,Panabo,Salvacion,synthetic
+demo-panabo-1102315029-01,Demo San Francisco Store 1,1102315029,Panabo,San Francisco,synthetic
+demo-panabo-1102315029-02,Demo San Francisco Store 2,1102315029,Panabo,San Francisco,synthetic
+demo-panabo-1102315030-01,Demo San Nicolas Store 1,1102315030,Panabo,San Nicolas,synthetic
+demo-panabo-1102315030-02,Demo San Nicolas Store 2,1102315030,Panabo,San Nicolas,synthetic
+demo-panabo-1102315031-01,Demo San Roque Store 1,1102315031,Panabo,San Roque,synthetic
+demo-panabo-1102315031-02,Demo San Roque Store 2,1102315031,Panabo,San Roque,synthetic
+demo-panabo-1102315032-01,Demo San Vicente Store 1,1102315032,Panabo,San Vicente,synthetic
+demo-panabo-1102315032-02,Demo San Vicente Store 2,1102315032,Panabo,San Vicente,synthetic
+demo-panabo-1102315033-01,Demo Santa Cruz Store 1,1102315033,Panabo,Santa Cruz,synthetic
+demo-panabo-1102315033-02,Demo Santa Cruz Store 2,1102315033,Panabo,Santa Cruz,synthetic
+demo-panabo-1102315034-01,Demo Santo Niño Store 1,1102315034,Panabo,Santo Niño,synthetic
+demo-panabo-1102315034-02,Demo Santo Niño Store 2,1102315034,Panabo,Santo Niño,synthetic
+demo-panabo-1102315035-01,Demo Sindaton Store 1,1102315035,Panabo,Sindaton,synthetic
+demo-panabo-1102315035-02,Demo Sindaton Store 2,1102315035,Panabo,Sindaton,synthetic
+demo-panabo-1102315036-01,Demo Southern Davao Store 1,1102315036,Panabo,Southern Davao,synthetic
+demo-panabo-1102315036-02,Demo Southern Davao Store 2,1102315036,Panabo,Southern Davao,synthetic
+demo-panabo-1102315037-01,Demo Tagpore Store 1,1102315037,Panabo,Tagpore,synthetic
+demo-panabo-1102315037-02,Demo Tagpore Store 2,1102315037,Panabo,Tagpore,synthetic
+demo-panabo-1102315038-01,Demo Tibungol Store 1,1102315038,Panabo,Tibungol,synthetic
+demo-panabo-1102315038-02,Demo Tibungol Store 2,1102315038,Panabo,Tibungol,synthetic
+demo-panabo-1102315039-01,Demo Upper Licanan Store 1,1102315039,Panabo,Upper Licanan,synthetic
+demo-panabo-1102315039-02,Demo Upper Licanan Store 2,1102315039,Panabo,Upper Licanan,synthetic
+demo-panabo-1102315040-01,Demo Waterfall Store 1,1102315040,Panabo,Waterfall,synthetic
+demo-panabo-1102315040-02,Demo Waterfall Store 2,1102315040,Panabo,Waterfall,synthetic
+demo-panabo-1102315041-01,Demo San Pedro Store 1,1102315041,Panabo,San Pedro,synthetic
+demo-panabo-1102315041-02,Demo San Pedro Store 2,1102315041,Panabo,San Pedro,synthetic
