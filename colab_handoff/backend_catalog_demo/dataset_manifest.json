@@ -1,0 +1,53 @@
+{
+  "schema_version": "market-demand-v1",
+  "generator_version": "backend-catalog-synthetic-v1",
+  "data_kind": "synthetic",
+  "source_catalog_sha256": "8572c9047e4560e2ddb70e4a9b957339960a4a9d41f2a4f78353326ad3559928",
+  "seed": 42,
+  "days": 180,
+  "rows": 50000,
+  "start": "2026-05-13",
+  "end": "2026-11-08",
+  "as_of": "2026-11-09T00:15:00+08:00",
+  "forecast_start": "2026-11-09",
+  "forecast_end": "2026-11-15",
+  "stores": 3,
+  "areas": 3,
+  "categories": 7,
+  "variants": 64,
+  "store_category_groups": 16,
+  "area_category_groups": 16,
+  "recorded_units": 84020,
+  "row_counts": {
+    "transactions.csv": 50000,
+    "coverage.csv": 2880,
+    "areas.csv": 3,
+    "stores.csv": 3,
+    "categories.csv": 7,
+    "products.csv": 64,
+    "store_daily_observations.csv": 2880,
+    "area_daily_observations.csv": 2880
+  },
+  "files": {
+    "area_daily_observations.csv": "a2b3c28e9fd202a5f1af585499e865cce633f4f71d8d4b03107a9e56741d8888",
+    "areas.csv": "609cff31911aecf982331e208d5c4f78b58f69f22c57de4b7525503f9784e4d4",
+    "categories.csv": "04a468c8fcd4a76abd5a7b46ec610bc4bff89cd789d79cf40795892ebefd4411",
+    "coverage.csv": "b3e7cf1e3a556f0d07b23034a868544ad6db3f31157cf18690fac144386714dd",
+    "products.csv": "08eaf34ed17c01b7deb2048eab821685da128ee3d9c6c5a138d266520a6c9766",
+    "store_daily_observations.csv": "359884d4814887eeedcc589a3b3e3e9b371b2c136c9fc794c934b34e64386028",
+    "stores.csv": "ecef62ab341d65c842c28e957de00cfded08901bf7697dec9ad6b34f3287b424",
+    "transactions.csv": "cd86c63386728cd67ad8ea1195085bd8b0bd7826ac4d859b1e7221fc7d8cbfac"
+  },
+  "assumptions": [
+    "Store/catalog identities and location labels come from the existing backend catalog snapshot. No sales came from its database.",
+    "All transactions, quantities, channels and complete-reporting statements are generated, and remain synthetic.",
+    "Only actual store/category catalog groups participate; unrepresented barangays/stores are not fabricated.",
+    "One positive sale every four dates is reserved for eligibility. Other lines use seeded synthetic weekday/trend/noise weights.",
+    "All participating groups report completely and are open throughout the period. Stock availability stays unknown.",
+    "Each sellable_unit is one catalog variant package/item. Package contents are not converted to kg, mL, or individual contents.",
+    "Current category package mixes may vary. Category totals count mixed sellable units, not equivalent physical consumption.",
+    "Both simulated sales and reporting statements become known at 00:05 next day, before 00:15 forecast issuance.",
+    "Approximate area reference coordinates are not individual store positions or official centroids.",
+    "Synthetic evaluation verifies behavior, not actual store demand or real predictive accuracy."
+  ]
+}

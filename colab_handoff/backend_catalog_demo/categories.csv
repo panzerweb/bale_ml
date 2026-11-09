@@ -1,0 +1,8 @@
+category_id,label,unit_label,unit_policy
+1,Rice and Grains,sellable_unit,recorded_sale_units
+2,Drinks,sellable_unit,recorded_sale_units
+3,Snacks,sellable_unit,recorded_sale_units
+4,Health and Beauty,sellable_unit,recorded_sale_units
+5,Household,sellable_unit,recorded_sale_units
+6,Gadgets,sellable_unit,recorded_sale_units
+7,School and Office,sellable_unit,recorded_sale_units

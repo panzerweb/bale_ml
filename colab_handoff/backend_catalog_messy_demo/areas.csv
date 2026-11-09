@@ -1,0 +1,4 @@
+area_id,city,barangay,latitude,longitude,coordinate_source
+1102315009,Panabo,Gredu,7.2957,125.6776,PhilAtlas approximate barangay reference; not a store location or official centroid
+1102315029,Panabo,San Francisco,7.3068,125.6803,PhilAtlas approximate barangay reference; not a store location or official centroid
+1102315034,Panabo,Santo Niño,7.3082,125.6867,PhilAtlas approximate barangay reference; not a store location or official centroid

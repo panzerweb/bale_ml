@@ -1,0 +1,370 @@
+{
+  "areas": [
+    {
+      "area_id": "1102315009",
+      "city": "Panabo",
+      "barangay": "Gredu",
+      "latitude": 7.2957,
+      "longitude": 125.6776,
+      "coordinate_source": "PhilAtlas approximate barangay reference; not a store location or official centroid"
+    },
+    {
+      "area_id": "1102315029",
+      "city": "Panabo",
+      "barangay": "San Francisco",
+      "latitude": 7.3068,
+      "longitude": 125.6803,
+      "coordinate_source": "PhilAtlas approximate barangay reference; not a store location or official centroid"
+    },
+    {
+      "area_id": "1102315034",
+      "city": "Panabo",
+      "barangay": "Santo Niño",
+      "latitude": 7.3082,
+      "longitude": 125.6867,
+      "coordinate_source": "PhilAtlas approximate barangay reference; not a store location or official centroid"
+    }
+  ],
+  "stores": [
+    {
+      "store_id": 1,
+      "area_id": "1102315009",
+      "data_kind": "synthetic",
+      "source_store_id": "backend-store-1"
+    },
+    {
+      "store_id": 2,
+      "area_id": "1102315034",
+      "data_kind": "synthetic",
+      "source_store_id": "backend-store-2"
+    },
+    {
+      "store_id": 3,
+      "area_id": "1102315029",
+      "data_kind": "synthetic",
+      "source_store_id": "backend-store-3"
+    }
+  ],
+  "units": [
+    {
+      "variant_id": 1,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=5 kg"
+    },
+    {
+      "variant_id": 2,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=25 kg"
+    },
+    {
+      "variant_id": 18,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=250 g"
+    },
+    {
+      "variant_id": 3,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=500 mL"
+    },
+    {
+      "variant_id": 4,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 L"
+    },
+    {
+      "variant_id": 19,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=1 sachet"
+    },
+    {
+      "variant_id": 20,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=10 sachets"
+    },
+    {
+      "variant_id": 5,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=27 g"
+    },
+    {
+      "variant_id": 6,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=110 g"
+    },
+    {
+      "variant_id": 14,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=10 pieces"
+    },
+    {
+      "variant_id": 15,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=20 pieces"
+    },
+    {
+      "variant_id": 7,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=60 g"
+    },
+    {
+      "variant_id": 8,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=130 g"
+    },
+    {
+      "variant_id": 22,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; variant=Anti-dandruff"
+    },
+    {
+      "variant_id": 23,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; variant=Conditioning"
+    },
+    {
+      "variant_id": 24,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; variant=Kids"
+    },
+    {
+      "variant_id": 9,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=66 g"
+    },
+    {
+      "variant_id": 10,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 kg"
+    },
+    {
+      "variant_id": 16,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=250 mL"
+    },
+    {
+      "variant_id": 17,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=500 mL"
+    },
+    {
+      "variant_id": 21,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=200 g"
+    },
+    {
+      "variant_id": 11,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; length=1 m"
+    },
+    {
+      "variant_id": 12,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=1 piece"
+    },
+    {
+      "variant_id": 13,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=12 pieces"
+    },
+    {
+      "variant_id": 25,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; leaves=80"
+    },
+    {
+      "variant_id": 26,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=5 kg"
+    },
+    {
+      "variant_id": 27,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=25 kg"
+    },
+    {
+      "variant_id": 32,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 kg"
+    },
+    {
+      "variant_id": 33,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=2 kg"
+    },
+    {
+      "variant_id": 34,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 kg"
+    },
+    {
+      "variant_id": 28,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 L"
+    },
+    {
+      "variant_id": 35,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=500 mL"
+    },
+    {
+      "variant_id": 36,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 L"
+    },
+    {
+      "variant_id": 44,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=500 mL"
+    },
+    {
+      "variant_id": 31,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=110 g"
+    },
+    {
+      "variant_id": 37,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=200 g"
+    },
+    {
+      "variant_id": 38,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=100 g"
+    },
+    {
+      "variant_id": 39,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=200 g"
+    },
+    {
+      "variant_id": 43,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=150 g"
+    },
+    {
+      "variant_id": 30,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=130 g"
+    },
+    {
+      "variant_id": 42,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=90 g"
+    },
+    {
+      "variant_id": 29,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=1 kg"
+    },
+    {
+      "variant_id": 40,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=2 kg"
+    },
+    {
+      "variant_id": 41,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=Standard"
+    },
+    {
+      "variant_id": 48,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=500 mL"
+    },
+    {
+      "variant_id": 63,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=240 mL"
+    },
+    {
+      "variant_id": 49,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=27 g"
+    },
+    {
+      "variant_id": 64,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; flavour=Beef"
+    },
+    {
+      "variant_id": 45,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; length=1 m"
+    },
+    {
+      "variant_id": 46,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; length=2 m"
+    },
+    {
+      "variant_id": 50,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; fit=Standard"
+    },
+    {
+      "variant_id": 51,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; fit=Privacy"
+    },
+    {
+      "variant_id": 52,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=Small"
+    },
+    {
+      "variant_id": 53,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=Medium"
+    },
+    {
+      "variant_id": 54,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=Large"
+    },
+    {
+      "variant_id": 55,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; size=Extra large"
+    },
+    {
+      "variant_id": 56,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; output=20 W"
+    },
+    {
+      "variant_id": 57,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; capacity=10000 mAh"
+    },
+    {
+      "variant_id": 58,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; colour=Black"
+    },
+    {
+      "variant_id": 59,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; colour=White"
+    },
+    {
+      "variant_id": 60,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; capacity=64 GB"
+    },
+    {
+      "variant_id": 47,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=12 pieces"
+    },
+    {
+      "variant_id": 61,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; pack=3 pieces"
+    },
+    {
+      "variant_id": 62,
+      "unit_label": "sellable_unit",
+      "package_description": "One sellable variant unit; leaves=80"
+    }
+  ]
+}

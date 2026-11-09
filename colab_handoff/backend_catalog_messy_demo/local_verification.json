@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "input_rows": 50000,
+  "cleaning_audit": {
+    "input_rows": 50000,
+    "accepted_completed_rows": 49656,
+    "excluded_status_rows": 150,
+    "exact_duplicates_removed": 150,
+    "quarantined_rows": 44,
+    "quarantined_measurable_quantity": 112.0,
+    "global_block": false
+  },
+  "eligible_area_categories": 14,
+  "eligible_store_categories": 14,
+  "area_forecast_rows": 98,
+  "store_forecast_rows": 98,
+  "model_trees": 120,
+  "area_method": "random_forest",
+  "store_method": "random_forest",
+  "bundle_verification": "passed",
+  "model_reload_parity": "passed",
+  "notebook_changes": false,
+  "original_dataset_changes": false,
+  "results_directory": "C:\\Users\\Admin\\OneDrive\\Documents\\Coding Projects\\Bale\\bale_ml\\ml_outputs\\messy-notebook-check-d7f15be8\\ml_outputs\\20261109T101313Z-f6de9e64",
+  "note": "Local execution check with normal 120-tree settings. All sales are hypothetical; scores do not establish real predictive accuracy."
+}

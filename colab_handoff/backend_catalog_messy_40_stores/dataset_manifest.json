@@ -1,0 +1,4759 @@
+{
+  "schema_version": "market-demand-v1",
+  "generator_version": "backend-catalog-synthetic-v1",
+  "generation_profile": "messy-forty-stores-v1",
+  "data_kind": "synthetic",
+  "seed": 20261109,
+  "source_catalog_sha256": "8572c9047e4560e2ddb70e4a9b957339960a4a9d41f2a4f78353326ad3559928",
+  "days": 180,
+  "rows": 200000,
+  "stores": 40,
+  "areas": 10,
+  "categories": 7,
+  "variants": 582,
+  "store_category_groups": 275,
+  "area_category_groups": 70,
+  "start": "2026-05-13",
+  "end": "2026-11-08",
+  "as_of": "2026-11-09T00:15:00+08:00",
+  "forecast_start": "2026-11-09",
+  "forecast_end": "2026-11-15",
+  "recorded_units": 325237,
+  "recorded_units_definition": "Accepted, deduplicated completed-sale units before group withholding; do not sum raw dirty quantities.",
+  "original_store_ids": [
+    "1",
+    "2",
+    "3"
+  ],
+  "fictional_store_ids": [
+    "1000000000",
+    "1000000001",
+    "1000000002",
+    "1000000003",
+    "1000000004",
+    "1000000005",
+    "1000000006",
+    "1000000007",
+    "1000000008",
+    "1000000009",
+    "1000000010",
+    "1000000011",
+    "1000000012",
+    "1000000013",
+    "1000000014",
+    "1000000015",
+    "1000000016",
+    "1000000017",
+    "1000000018",
+    "1000000019",
+    "1000000020",
+    "1000000021",
+    "1000000022",
+    "1000000023",
+    "1000000024",
+    "1000000025",
+    "1000000026",
+    "1000000027",
+    "1000000028",
+    "1000000029",
+    "1000000030",
+    "1000000031",
+    "1000000032",
+    "1000000033",
+    "1000000034",
+    "1000000035",
+    "1000000036"
+  ],
+  "identity_policy": "Three catalog stores are preserved. The other 37 stores and their product/variant IDs are fictional, allocated from 1000000000 upward while skipping existing IDs; they are not registered backend records.",
+  "assumptions": [
+    "All sales and reporting statements are hypothetical; no database is accessed or modified.",
+    "Exactly four stores occupy each of ten barangays. Original product assignments are retained; fictional stores clone two variant templates in each of seven categories with new IDs.",
+    "Store/category weekday weights, noise and gradual -20% to +30% changes are invented assumptions, not measured local behavior.",
+    "There is no forced-sale activity floor. Some days have genuine zero sales. The 198760-line base budget is fixed for this comparison.",
+    "About 0.3% of base lines are deliberately large valid purchases. Packages/items are counted without conversion to common weights or volumes.",
+    "Corrupted store/category combinations are withheld; their area/category totals are also withheld. One incomplete contributing store prevents a complete area total.",
+    "Supplemental observations describe the current cleaned/withheld snapshot. Historical late records enter only after their known_at time.",
+    "Synthetic scores test workflow behavior, not real business accuracy. No model is forced to win."
+  ],
+  "row_counts": {
+    "transactions.csv": 200000,
+    "coverage.csv": 49500,
+    "areas.csv": 10,
+    "stores.csv": 40,
+    "categories.csv": 7,
+    "products.csv": 582,
+    "store_daily_observations.csv": 49500,
+    "area_daily_observations.csv": 12600
+  },
+  "intentional_scenarios": {
+    "corrupt_store_categories": [
+      {
+        "store_id": "1000000000",
+        "area_id": "1102315001",
+        "barangay": "A. O. Floirendo",
+        "category_id": "1",
+        "category_name": "Rice and Grains"
+      },
+      {
+        "store_id": "1000000004",
+        "area_id": "1102315002",
+        "barangay": "Datu Abdul Dadia",
+        "category_id": "1",
+        "category_name": "Rice and Grains"
+      },
+      {
+        "store_id": "1000000008",
+        "area_id": "1102315003",
+        "barangay": "Buenavista",
+        "category_id": "1",
+        "category_name": "Rice and Grains"
+      },
+      {
+        "store_id": "1000000012",
+        "area_id": "1102315004",
+        "barangay": "Cacao",
+        "category_id": "1",
+        "category_name": "Rice and Grains"
+      }
+    ],
+    "partial_store_categories": [
+      {
+        "store_id": "1000000016",
+        "area_id": "1102315005",
+        "barangay": "Cagangohan",
+        "category_id": "2",
+        "category_name": "Drinks"
+      },
+      {
+        "store_id": "1000000020",
+        "area_id": "1102315006",
+        "barangay": "Consolacion",
+        "category_id": "2",
+        "category_name": "Drinks"
+      },
+      {
+        "store_id": "1000000024",
+        "area_id": "1102315007",
+        "barangay": "Dapco",
+        "category_id": "2",
+        "category_name": "Drinks"
+      },
+      {
+        "store_id": "1",
+        "area_id": "1102315009",
+        "barangay": "Gredu",
+        "category_id": "2",
+        "category_name": "Drinks"
+      }
+    ],
+    "partial_reporting_date": "2026-11-08",
+    "late_store_categories": [
+      {
+        "store_id": "1000000003",
+        "area_id": "1102315001",
+        "barangay": "A. O. Floirendo",
+        "category_id": "3",
+        "category_name": "Snacks"
+      },
+      {
+        "store_id": "1000000007",
+        "area_id": "1102315002",
+        "barangay": "Datu Abdul Dadia",
+        "category_id": "3",
+        "category_name": "Snacks"
+      },
+      {
+        "store_id": "1000000011",
+        "area_id": "1102315003",
+        "barangay": "Buenavista",
+        "category_id": "3",
+        "category_name": "Snacks"
+      },
+      {
+        "store_id": "1000000015",
+        "area_id": "1102315004",
+        "barangay": "Cacao",
+        "category_id": "3",
+        "category_name": "Snacks"
+      }
+    ],
+    "late_reporting_dates": [
+      "2026-08-16",
+      "2026-08-30"
+    ],
+    "reporting_delay": "Normally next day 00:05 Manila; selected reports and sales arrive two days after the event at 00:05.",
+    "formatting_rows": 1600,
+    "exact_duplicate_copies": 600,
+    "cancelled_rows": 400,
+    "voided_rows": 200,
+    "invalid_quantity_rows": 48,
+    "missing_product_id_rows": 24,
+    "unsupported_status_rows": 24,
+    "conflicting_pairs": 40,
+    "bulk_purchase_source_rows": 575,
+    "expected_cleaning_audit": {
+      "input_rows": 200000,
+      "accepted_completed_rows": 198624,
+      "excluded_status_rows": 600,
+      "exact_duplicates_removed": 600,
+      "quarantined_rows": 176,
+      "global_block": false
+    },
+    "parameters": [
+      {
+        "store_id": "1",
+        "category_id": "1",
+        "relative_activity": 0.8244879789294773,
+        "weekday_weights": [
+          1.0476397637666301,
+          0.9696621965508394,
+          0.8729421049599728,
+          1.1481407894663391,
+          1.1507518622141166,
+          1.4950066324588716,
+          0.8640788286514147
+        ],
+        "history_trend": 0.044905029573098,
+        "zero_activity_probability": 0.10138090608474606
+      },
+      {
+        "store_id": "1",
+        "category_id": "2",
+        "relative_activity": 1.1090408570002745,
+        "weekday_weights": [
+          0.869911382898541,
+          1.1067966284787427,
+          1.0117323232263975,
+          1.1200845251320939,
+          0.8104859412066777,
+          1.1305846586908395,
+          1.4076812991714032
+        ],
+        "history_trend": -0.12303586807086991,
+        "zero_activity_probability": 0.08236990325400811
+      },
+      {
+        "store_id": "1",
+        "category_id": "3",
+        "relative_activity": 1.2056241678277155,
+        "weekday_weights": [
+          1.0565398958074794,
+          0.8069584536024661,
+          0.8441539797075793,
+          0.8487038431409039,
+          1.0480042045336453,
+          1.490653435020164,
+          1.4205266656011921
+        ],
+        "history_trend": -0.01045374747889316,
+        "zero_activity_probability": 0.15344369451828727
+      },
+      {
+        "store_id": "1",
+        "category_id": "4",
+        "relative_activity": 1.0645042540840712,
+        "weekday_weights": [
+          1.1283605674971091,
+          0.8757921570667111,
+          1.1683789094986334,
+          0.9758539757873301,
+          0.9786762999524661,
+          1.4329235480901574,
+          0.7211240821904884
+        ],
+        "history_trend": 0.08706732552051577,
+        "zero_activity_probability": 0.15283925785457497
+      },
+      {
+        "store_id": "1",
+        "category_id": "5",
+        "relative_activity": 1.0857060548367836,
+        "weekday_weights": [
+          1.071570200871144,
+          0.8332152901591627,
+          0.9158284996269813,
+          1.1292300288839123,
+          0.9895888123371352,
+          0.9140652194188637,
+          0.7297678758814496
+        ],
+        "history_trend": 0.24984287717113612,
+        "zero_activity_probability": 0.13023935155276037
+      },
+      {
+        "store_id": "1",
+        "category_id": "6",
+        "relative_activity": 1.5784496098956082,
+        "weekday_weights": [
+          1.1478017045713753,
+          0.8402845426457471,
+          0.9930032936361778,
+          0.8326428688216195,
+          1.1110510687963866,
+          0.8664791360298919,
+          1.0290266326041104
+        ],
+        "history_trend": 0.19774889264289314,
+        "zero_activity_probability": 0.1732082227275494
+      },
+      {
+        "store_id": "1",
+        "category_id": "7",
+        "relative_activity": 1.3161399955925506,
+        "weekday_weights": [
+          1.161961385680622,
+          0.860627787618888,
+          0.8849295411606259,
+          0.9368023399624663,
+          0.8225224626786605,
+          1.0795993919358777,
+          1.066872458643883
+        ],
+        "history_trend": 0.048892647481831975,
+        "zero_activity_probability": 0.16918983638747007
+      },
+      {
+        "store_id": "2",
+        "category_id": "1",
+        "relative_activity": 1.3785065774517844,
+        "weekday_weights": [
+          1.0604511186972352,
+          1.0861104197127718,
+          0.8390487727954383,
+          1.0010177431887215,
+          0.9522777872603533,
+          1.3438820108566794,
+          0.9720770719158498
+        ],
+        "history_trend": -0.002202503456033622,
+        "zero_activity_probability": 0.09549583189433483
+      },
+      {
+        "store_id": "2",
+        "category_id": "2",
+        "relative_activity": 1.2419083238267032,
+        "weekday_weights": [
+          1.012433460830934,
+          1.0125475717074484,
+          1.0195618069257788,
+          1.1632911913605763,
+          1.1832865591910886,
+          1.3312984173764593,
+          1.4112771927859262
+        ],
+        "history_trend": 0.18147680222451534,
+        "zero_activity_probability": 0.1735996951933875
+      },
+      {
+        "store_id": "2",
+        "category_id": "3",
+        "relative_activity": 0.6985322867500161,
+        "weekday_weights": [
+          1.14880701404476,
+          0.8120199485419615,
+          0.9784018715037828,
+          0.930144098011555,
+          0.8825318233975417,
+          1.1439125553382583,
+          1.1796543405746511
+        ],
+        "history_trend": 0.1144081639775178,
+        "zero_activity_probability": 0.17543813338953582
+      },
+      {
+        "store_id": "2",
+        "category_id": "4",
+        "relative_activity": 0.6989087677883795,
+        "weekday_weights": [
+          0.8497517517559643,
+          0.9198556144578303,
+          0.8101118091809844,
+          1.030445851727315,
+          0.9456153485143445,
+          1.2220352952380948,
+          0.9980981548309632
+        ],
+        "history_trend": -0.13308966402996525,
+        "zero_activity_probability": 0.171259344429829
+      },
+      {
+        "store_id": "2",
+        "category_id": "5",
+        "relative_activity": 1.065865310318217,
+        "weekday_weights": [
+          1.1451075904927734,
+          0.9003706529416183,
+          0.8081256315670713,
+          1.0675631243008978,
+          0.9850947745431096,
+          1.3469768851534982,
+          0.7439195204414049
+        ],
+        "history_trend": 0.25732317053691833,
+        "zero_activity_probability": 0.11443703548560762
+      },
+      {
+        "store_id": "3",
+        "category_id": "2",
+        "relative_activity": 1.201721176205321,
+        "weekday_weights": [
+          0.9288026376401919,
+          1.03238001657162,
+          1.0388217262096255,
+          0.8318526764615369,
+          0.9678084447163606,
+          1.4727131881921351,
+          0.8131019124573344
+        ],
+        "history_trend": -0.08816348047493527,
+        "zero_activity_probability": 0.09791747533891412
+      },
+      {
+        "store_id": "3",
+        "category_id": "3",
+        "relative_activity": 1.3145453058360679,
+        "weekday_weights": [
+          0.9530036927889798,
+          1.0356830685450884,
+          0.8600273054032203,
+          0.933799130173742,
+          1.0172063187162304,
+          0.9533236016063638,
+          1.3722331710021414
+        ],
+        "history_trend": -0.07529109271112594,
+        "zero_activity_probability": 0.15922717031411254
+      },
+      {
+        "store_id": "3",
+        "category_id": "6",
+        "relative_activity": 1.4193237060112924,
+        "weekday_weights": [
+          0.9045613664089345,
+          1.0333010227482662,
+          1.0689020764290813,
+          0.811076339321943,
+          0.9181104968584881,
+          0.804143403834859,
+          0.9646816426697744
+        ],
+        "history_trend": -0.047567244900361794,
+        "zero_activity_probability": 0.125618783975512
+      },
+      {
+        "store_id": "3",
+        "category_id": "7",
+        "relative_activity": 1.1506270537009273,
+        "weekday_weights": [
+          0.9374270860699656,
+          0.920112626120489,
+          1.089954609660418,
+          0.9164551496719661,
+          1.122803048195864,
+          1.1031110074119959,
+          0.9903014225210497
+        ],
+        "history_trend": -0.1576744245033106,
+        "zero_activity_probability": 0.15377880228969337
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "1",
+        "relative_activity": 1.503705840172315,
+        "weekday_weights": [
+          0.8090758608293379,
+          0.8588243736455221,
+          0.8120513640636479,
+          1.0959059553194068,
+          1.0160831922405664,
+          1.1663640190395674,
+          1.156236147827336
+        ],
+        "history_trend": -0.15062342583196692,
+        "zero_activity_probability": 0.08568367910221086
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "2",
+        "relative_activity": 0.7641296993260327,
+        "weekday_weights": [
+          1.0286621377084506,
+          1.1881134663386752,
+          1.1001615936926736,
+          1.0923581937412934,
+          1.08474868896742,
+          1.4187835154615032,
+          1.177481913791
+        ],
+        "history_trend": 0.24936866626370713,
+        "zero_activity_probability": 0.13836835397707348
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "3",
+        "relative_activity": 1.4399683596926898,
+        "weekday_weights": [
+          1.1288853705938122,
+          0.9688332928960209,
+          0.8805117708230173,
+          0.9261679856804281,
+          1.141969148057268,
+          0.8319460165902095,
+          0.8454173235385516
+        ],
+        "history_trend": -0.09634374395841033,
+        "zero_activity_probability": 0.09274074193181563
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "4",
+        "relative_activity": 0.9528328954981217,
+        "weekday_weights": [
+          1.1061408903655647,
+          0.9922423933316948,
+          1.0501314922187,
+          0.8666594202038946,
+          0.9465804603449904,
+          1.4769513814664854,
+          1.3413201508890635
+        ],
+        "history_trend": 0.20378828121361647,
+        "zero_activity_probability": 0.12397792154065362
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "5",
+        "relative_activity": 0.8458777207480582,
+        "weekday_weights": [
+          0.9184264551239215,
+          1.0712761495961292,
+          0.9307566356247383,
+          0.9075463458899264,
+          0.9563841790170757,
+          1.2699556144878472,
+          0.8469105638306854
+        ],
+        "history_trend": 0.06536496134512804,
+        "zero_activity_probability": 0.16215535429864208
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "6",
+        "relative_activity": 0.8682010169599264,
+        "weekday_weights": [
+          1.1663048750859597,
+          1.172482324158846,
+          0.894330603267106,
+          0.9018251365276956,
+          0.9587562611143262,
+          1.3914373116800087,
+          1.469202515156061
+        ],
+        "history_trend": -0.17673048087611548,
+        "zero_activity_probability": 0.12843090221272113
+      },
+      {
+        "store_id": "1000000000",
+        "category_id": "7",
+        "relative_activity": 1.5182456854386555,
+        "weekday_weights": [
+          0.9898480148781799,
+          0.9362603914007445,
+          0.8588720949725197,
+          1.1835076792206567,
+          1.1443151269860963,
+          1.2891557903871609,
+          1.0446707748715167
+        ],
+        "history_trend": 0.11750516027061197,
+        "zero_activity_probability": 0.16332749728928492
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "1",
+        "relative_activity": 0.9714700826935154,
+        "weekday_weights": [
+          1.1783068827615906,
+          1.0002933879075084,
+          0.8449665040913048,
+          0.8088942518815193,
+          1.1288006374987598,
+          0.9503794215466879,
+          0.8180713733161702
+        ],
+        "history_trend": -0.1014738299291788,
+        "zero_activity_probability": 0.12493118853855378
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "2",
+        "relative_activity": 1.091183352485169,
+        "weekday_weights": [
+          0.8836812431158685,
+          1.1017978395355092,
+          0.8946637250465413,
+          1.0464323576207186,
+          1.1059954138508648,
+          0.7190478500652489,
+          0.705013569090517
+        ],
+        "history_trend": -0.18075257174734183,
+        "zero_activity_probability": 0.11360460432508973
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "3",
+        "relative_activity": 1.5354386183620075,
+        "weekday_weights": [
+          1.1093427633622714,
+          0.9996396235116933,
+          0.928339432102474,
+          1.0330743192752743,
+          1.174000546127612,
+          1.0544849420147875,
+          0.8795861047438098
+        ],
+        "history_trend": 0.011895841928955875,
+        "zero_activity_probability": 0.14879331566550807
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "4",
+        "relative_activity": 0.7121464485363788,
+        "weekday_weights": [
+          0.9824055654118495,
+          1.0619254433166303,
+          1.0169308748677683,
+          1.074282833054117,
+          1.1529738387490889,
+          0.9073848508772929,
+          0.8810738131612589
+        ],
+        "history_trend": -0.05455249837496606,
+        "zero_activity_probability": 0.15597206281885623
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "5",
+        "relative_activity": 1.4925865703546755,
+        "weekday_weights": [
+          1.0606392844830193,
+          1.0621432898722027,
+          1.1404890420946323,
+          0.936774681108584,
+          0.9144064317471027,
+          1.3607270764324204,
+          0.8209844945228102
+        ],
+        "history_trend": -0.0032310705211088253,
+        "zero_activity_probability": 0.12569106551234482
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "6",
+        "relative_activity": 1.161145576531187,
+        "weekday_weights": [
+          1.0311411614275494,
+          0.8646185839542078,
+          1.1806185195995262,
+          0.952283194319263,
+          0.9091013097974864,
+          0.8044147976008541,
+          0.9200745368236247
+        ],
+        "history_trend": -0.14676301660355567,
+        "zero_activity_probability": 0.16711114512337913
+      },
+      {
+        "store_id": "1000000001",
+        "category_id": "7",
+        "relative_activity": 0.9515186580668398,
+        "weekday_weights": [
+          0.928249750864456,
+          1.1190733010855878,
+          0.9081941721957365,
+          1.1217663242112164,
+          0.9920321728127192,
+          1.1844294560961701,
+          1.145764435111266
+        ],
+        "history_trend": 0.08601298084006515,
+        "zero_activity_probability": 0.08333937669008325
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "1",
+        "relative_activity": 1.2671953590271765,
+        "weekday_weights": [
+          1.1196221872871643,
+          0.9389587995279131,
+          1.0740269946249956,
+          0.9472129746778022,
+          1.1295253349926206,
+          1.310216300161799,
+          1.1014069296282938
+        ],
+        "history_trend": -0.1713959306672001,
+        "zero_activity_probability": 0.093548610091803
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "2",
+        "relative_activity": 1.127192218804447,
+        "weekday_weights": [
+          1.1209162481409494,
+          1.1611272534889299,
+          1.0847961847795768,
+          1.0927796078832615,
+          1.1474544695440154,
+          1.1322507267332762,
+          1.3542595477717756
+        ],
+        "history_trend": 0.01867834099828125,
+        "zero_activity_probability": 0.09068254501472564
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "3",
+        "relative_activity": 1.0467843521590248,
+        "weekday_weights": [
+          1.0181781233666012,
+          0.950543779253186,
+          0.9576480914641315,
+          0.972815044792506,
+          0.83642171783062,
+          0.8637930559979211,
+          0.9880698393309729
+        ],
+        "history_trend": 0.16866763164002502,
+        "zero_activity_probability": 0.12294696244319658
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "4",
+        "relative_activity": 0.8680861433439305,
+        "weekday_weights": [
+          1.1449416300384527,
+          1.1717133092998775,
+          1.176134172150235,
+          0.963015746965746,
+          0.9550680861400955,
+          0.9937056517948253,
+          1.0221822190235692
+        ],
+        "history_trend": 0.049767701990098,
+        "zero_activity_probability": 0.10687084453640744
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "5",
+        "relative_activity": 0.897225601246674,
+        "weekday_weights": [
+          1.0901534215757105,
+          0.8698364337499706,
+          1.1969843106085583,
+          1.0720876462104802,
+          1.0470042052063788,
+          0.8899609698615499,
+          1.2755463444637738
+        ],
+        "history_trend": -0.07800263810669134,
+        "zero_activity_probability": 0.14531797288362347
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "6",
+        "relative_activity": 0.9121842003024385,
+        "weekday_weights": [
+          1.0711799675544047,
+          1.0271778223895252,
+          0.9429948985914369,
+          0.9811057130805894,
+          0.8677705403646667,
+          1.4347408285972048,
+          1.404321900108297
+        ],
+        "history_trend": 0.15611015197915762,
+        "zero_activity_probability": 0.16684547309369502
+      },
+      {
+        "store_id": "1000000002",
+        "category_id": "7",
+        "relative_activity": 1.3711794929563972,
+        "weekday_weights": [
+          0.8439873110424918,
+          0.8025532599514633,
+          0.9490406114939103,
+          0.900652117680412,
+          1.1156982003141427,
+          1.105544358693812,
+          0.7291773299108564
+        ],
+        "history_trend": 0.24141384694956208,
+        "zero_activity_probability": 0.13895870867691973
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "1",
+        "relative_activity": 1.2109097467496897,
+        "weekday_weights": [
+          1.064140671921118,
+          1.1842968874627628,
+          1.0771029707204982,
+          0.8948989815179215,
+          1.0679723820553517,
+          0.940384943513569,
+          0.8034609461698179
+        ],
+        "history_trend": -0.15453193769842843,
+        "zero_activity_probability": 0.1780220008164545
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "2",
+        "relative_activity": 1.1991615561947588,
+        "weekday_weights": [
+          1.1315195300917866,
+          1.095715869287583,
+          1.1229174290331658,
+          1.0256148826894809,
+          0.9938065691223109,
+          1.0006577295785128,
+          0.7138105747001775
+        ],
+        "history_trend": -0.08284896702297462,
+        "zero_activity_probability": 0.1173917535812623
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "3",
+        "relative_activity": 0.6757791269359728,
+        "weekday_weights": [
+          1.0691456599575138,
+          0.9033387312728324,
+          1.1590728736652907,
+          1.1497244202376968,
+          1.1539163690543153,
+          0.9346902293552845,
+          0.756519497455812
+        ],
+        "history_trend": -0.038180227008738354,
+        "zero_activity_probability": 0.10888551535517152
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "4",
+        "relative_activity": 0.7839683610131138,
+        "weekday_weights": [
+          0.9243442448118819,
+          1.056284397315557,
+          0.8357896592080378,
+          1.015165484566374,
+          0.9567420407772417,
+          1.293850028157177,
+          0.9396408351269904
+        ],
+        "history_trend": -0.08526550285176798,
+        "zero_activity_probability": 0.0830148317754506
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "5",
+        "relative_activity": 0.767331617267027,
+        "weekday_weights": [
+          1.0515554108633618,
+          0.9060364766874428,
+          0.8974815433144975,
+          0.8228281426868144,
+          1.1357256716366513,
+          1.2650675131193947,
+          0.7054821633987362
+        ],
+        "history_trend": 0.2332113114242742,
+        "zero_activity_probability": 0.08317602375903183
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "6",
+        "relative_activity": 0.8714950663442191,
+        "weekday_weights": [
+          0.9429583723789243,
+          1.0695265657926092,
+          0.8111446020657852,
+          0.9430899146056434,
+          0.9235895782219236,
+          1.251991123794399,
+          1.026538972231733
+        ],
+        "history_trend": 0.1774986296427714,
+        "zero_activity_probability": 0.13036290339418197
+      },
+      {
+        "store_id": "1000000003",
+        "category_id": "7",
+        "relative_activity": 1.5412469002760631,
+        "weekday_weights": [
+          0.973860963049439,
+          1.0473525753894357,
+          1.0565534774978118,
+          0.970831762634746,
+          1.0389694746569336,
+          0.8123705993534692,
+          0.7292321633045231
+        ],
+        "history_trend": 0.22144153519108595,
+        "zero_activity_probability": 0.10796264936522865
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "1",
+        "relative_activity": 0.8908071079964612,
+        "weekday_weights": [
+          1.0323262306938343,
+          0.9169889925138981,
+          1.1521738286139733,
+          1.0574651668684991,
+          0.9167881713735815,
+          1.4385081576149852,
+          1.2767942493991402
+        ],
+        "history_trend": 0.03214132067131886,
+        "zero_activity_probability": 0.13308836061865972
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "2",
+        "relative_activity": 0.7665095923684968,
+        "weekday_weights": [
+          0.8981833021449613,
+          0.9975827558505306,
+          1.1032826725163476,
+          1.0878004239051537,
+          1.1826287466235157,
+          1.38122184129327,
+          0.7614921712983039
+        ],
+        "history_trend": -0.09397017948423131,
+        "zero_activity_probability": 0.17230178356187564
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "3",
+        "relative_activity": 0.9433176366921743,
+        "weekday_weights": [
+          0.9032272502806441,
+          1.1848649018554347,
+          1.0175743079461068,
+          1.1199051290479158,
+          1.188106987469173,
+          1.2771123488502512,
+          1.3797955275495584
+        ],
+        "history_trend": 0.20324325829295842,
+        "zero_activity_probability": 0.13375053886866412
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "4",
+        "relative_activity": 1.5199908890423908,
+        "weekday_weights": [
+          1.0176279025091102,
+          0.8521224650463858,
+          1.0025854267298422,
+          1.0616306630899979,
+          0.8922745883453456,
+          1.1338211746713347,
+          1.4507073485460884
+        ],
+        "history_trend": -0.11633116603154636,
+        "zero_activity_probability": 0.10097812931317919
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "5",
+        "relative_activity": 0.9953050580905758,
+        "weekday_weights": [
+          0.9525795367665196,
+          0.8103150051494743,
+          1.084848416818363,
+          0.8917209518200727,
+          0.9891576513966527,
+          1.0215108050774486,
+          1.142600092809469
+        ],
+        "history_trend": 0.12496929188929817,
+        "zero_activity_probability": 0.14723606661624267
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "6",
+        "relative_activity": 1.2956451835555638,
+        "weekday_weights": [
+          0.8597408359224066,
+          0.846955759455718,
+          1.0958381967162283,
+          0.969234644735337,
+          1.0693538779670009,
+          0.9300570376576092,
+          0.8271273989055696
+        ],
+        "history_trend": -0.10182296938607538,
+        "zero_activity_probability": 0.1145773551024876
+      },
+      {
+        "store_id": "1000000004",
+        "category_id": "7",
+        "relative_activity": 0.8707879350214357,
+        "weekday_weights": [
+          1.109753182262026,
+          0.8809749080740567,
+          0.9118270436758178,
+          1.042654794600836,
+          0.814723433833318,
+          1.4040848389165625,
+          1.1620941889517282
+        ],
+        "history_trend": 0.006857173264889771,
+        "zero_activity_probability": 0.09770407126005767
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "1",
+        "relative_activity": 0.9380609404544167,
+        "weekday_weights": [
+          0.9363986544377179,
+          1.0326403419069952,
+          1.0421846563005774,
+          1.0004403118779879,
+          1.1875282923368757,
+          1.0578584928279051,
+          0.9258821269089648
+        ],
+        "history_trend": 0.2914190691726191,
+        "zero_activity_probability": 0.14511571212151775
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "2",
+        "relative_activity": 1.332664391042595,
+        "weekday_weights": [
+          0.8031289882801967,
+          0.9945822190397939,
+          0.9525155876367515,
+          0.9374406436119759,
+          0.923792237832703,
+          1.4700466681528324,
+          1.093429190316702
+        ],
+        "history_trend": 0.15050457995966593,
+        "zero_activity_probability": 0.08012155098624847
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "3",
+        "relative_activity": 0.9831699715291465,
+        "weekday_weights": [
+          0.9893344698811133,
+          1.1927143265893743,
+          1.0481360257916839,
+          0.9642268271801437,
+          0.9418548826673432,
+          0.7835458183692288,
+          0.8076515898716625
+        ],
+        "history_trend": -0.04917917460033028,
+        "zero_activity_probability": 0.14681698978508698
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "4",
+        "relative_activity": 1.3168774625034345,
+        "weekday_weights": [
+          1.1755670710246888,
+          0.8335440774835068,
+          1.0850410817747962,
+          0.9563308074603565,
+          1.1595442174685995,
+          1.457735613814723,
+          0.8284844187418052
+        ],
+        "history_trend": -0.04635474893135244,
+        "zero_activity_probability": 0.17023400969826938
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "5",
+        "relative_activity": 1.3804137775230567,
+        "weekday_weights": [
+          0.9220124452530254,
+          0.9311221691162404,
+          0.9693099956151424,
+          1.168339890918047,
+          1.0055253322780926,
+          1.4900084715684119,
+          1.4627099478767822
+        ],
+        "history_trend": -0.031744357263633005,
+        "zero_activity_probability": 0.12441436391038235
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "6",
+        "relative_activity": 0.9163885858052561,
+        "weekday_weights": [
+          1.0033095956155187,
+          0.881935931030947,
+          0.9389435472442463,
+          0.8331318157605062,
+          0.9673994162063182,
+          1.4373964066918632,
+          1.4915982259015972
+        ],
+        "history_trend": 0.2449879280061587,
+        "zero_activity_probability": 0.1360487785560977
+      },
+      {
+        "store_id": "1000000005",
+        "category_id": "7",
+        "relative_activity": 1.261440611559271,
+        "weekday_weights": [
+          0.8227391338604076,
+          0.8687889189001924,
+          0.9336020964332619,
+          0.8332796932555468,
+          0.870881531501132,
+          1.0377107040221012,
+          1.0204775778893604
+        ],
+        "history_trend": -0.11770201786122364,
+        "zero_activity_probability": 0.16279046459739133
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "1",
+        "relative_activity": 1.1795494077158206,
+        "weekday_weights": [
+          0.8620777366161303,
+          0.8548295803472339,
+          1.1719310804849257,
+          0.999245330023743,
+          1.0402109266539337,
+          1.0647191033150838,
+          1.187636532444273
+        ],
+        "history_trend": -0.16413038096144478,
+        "zero_activity_probability": 0.15325798607700414
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "2",
+        "relative_activity": 1.3900440548660078,
+        "weekday_weights": [
+          1.0651034332087703,
+          0.8534338626671305,
+          1.0288824689393348,
+          1.017581361497074,
+          0.9489777751577009,
+          0.9220937104724989,
+          0.9814013428325856
+        ],
+        "history_trend": 0.09580098727960051,
+        "zero_activity_probability": 0.08005121315265781
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "3",
+        "relative_activity": 1.4722547927758567,
+        "weekday_weights": [
+          1.1213730147440213,
+          0.9324127372626567,
+          1.0623116454595294,
+          1.1114216008238516,
+          0.9788029491636971,
+          0.7017516614255715,
+          0.9912986938272654
+        ],
+        "history_trend": -0.12393877230591427,
+        "zero_activity_probability": 0.12010471528274425
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "4",
+        "relative_activity": 1.4575147026119422,
+        "weekday_weights": [
+          1.1454882085102362,
+          0.8872051949282186,
+          1.0389606800852176,
+          0.9261408102480548,
+          0.8993119392819372,
+          0.9011666949065281,
+          1.2812355095587467
+        ],
+        "history_trend": 0.2775771591268145,
+        "zero_activity_probability": 0.1695849485042746
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "5",
+        "relative_activity": 1.3560693848541352,
+        "weekday_weights": [
+          1.0935991913392884,
+          1.0061477841007969,
+          1.0293757487821427,
+          1.1247639632681892,
+          0.8010783665389176,
+          0.9921241725120529,
+          1.241992044593157
+        ],
+        "history_trend": 0.1813945512096133,
+        "zero_activity_probability": 0.14625249501505816
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "6",
+        "relative_activity": 1.2462218391027327,
+        "weekday_weights": [
+          1.019876319406287,
+          1.0980122056748147,
+          1.145384854580254,
+          0.8680889804731935,
+          0.9966073838478648,
+          0.783346163984687,
+          0.991909673868469
+        ],
+        "history_trend": 0.009491969028962266,
+        "zero_activity_probability": 0.13710828717852636
+      },
+      {
+        "store_id": "1000000006",
+        "category_id": "7",
+        "relative_activity": 1.2307934587292688,
+        "weekday_weights": [
+          1.059597799622075,
+          0.9629869060311285,
+          0.9443172376588633,
+          1.1665227438941908,
+          1.1031902949030044,
+          1.0385627590220272,
+          1.1771254231247386
+        ],
+        "history_trend": -0.18588214717423834,
+        "zero_activity_probability": 0.1480429456414134
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "1",
+        "relative_activity": 0.7701193700079618,
+        "weekday_weights": [
+          0.9677993918728344,
+          0.939569347441033,
+          1.1362371494800256,
+          0.9301350844475984,
+          0.83759021398444,
+          0.9249850100311946,
+          0.8606576315679781
+        ],
+        "history_trend": -0.16626315715783385,
+        "zero_activity_probability": 0.10586441272229602
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "2",
+        "relative_activity": 0.8309274453071748,
+        "weekday_weights": [
+          0.9155941332592735,
+          0.8016436854866003,
+          0.9333541854237901,
+          1.0851234242809087,
+          0.8008732337736104,
+          1.4088572558984946,
+          1.370389504436377
+        ],
+        "history_trend": -0.13728257140224265,
+        "zero_activity_probability": 0.1472873710534034
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "3",
+        "relative_activity": 1.1488401674782927,
+        "weekday_weights": [
+          1.146666014814879,
+          0.8675352628948593,
+          1.163719461726041,
+          0.8268796360628631,
+          1.0035078052819195,
+          1.4059404168729452,
+          1.0885055753812793
+        ],
+        "history_trend": 0.2856450554734594,
+        "zero_activity_probability": 0.10821820392712113
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "4",
+        "relative_activity": 1.4533179194415093,
+        "weekday_weights": [
+          1.0439273775642666,
+          0.802313655322554,
+          0.9869340720264244,
+          0.9620985005718334,
+          1.159128279534398,
+          0.9537623325235635,
+          0.7852858777674996
+        ],
+        "history_trend": 0.21982621221489912,
+        "zero_activity_probability": 0.0830418052266922
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "5",
+        "relative_activity": 1.104800747244909,
+        "weekday_weights": [
+          0.984030816108759,
+          0.9885831865763339,
+          1.0864124664574413,
+          0.9453592812149129,
+          1.1596082024399168,
+          1.3636985724701995,
+          1.4449747777974535
+        ],
+        "history_trend": 0.06676186863735067,
+        "zero_activity_probability": 0.11664369017598906
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "6",
+        "relative_activity": 1.5454957080278517,
+        "weekday_weights": [
+          0.96717484210275,
+          1.0680447344208996,
+          1.1571761792050985,
+          0.9352889819615333,
+          1.1998671727693788,
+          0.8322703002428912,
+          0.9100180099706231
+        ],
+        "history_trend": -0.03214283798841383,
+        "zero_activity_probability": 0.08814598807912383
+      },
+      {
+        "store_id": "1000000007",
+        "category_id": "7",
+        "relative_activity": 1.3813269788539246,
+        "weekday_weights": [
+          0.9500822568813921,
+          1.0612943448704304,
+          0.8348308703156035,
+          1.062648747046676,
+          1.198232697030994,
+          1.2724712616706424,
+          0.8666149283634809
+        ],
+        "history_trend": 0.0025869837605784762,
+        "zero_activity_probability": 0.17190180512719855
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "1",
+        "relative_activity": 1.3281705194143014,
+        "weekday_weights": [
+          0.8553534846730646,
+          1.1730322934253268,
+          0.9496942818545844,
+          0.8314430747290984,
+          0.9788962964296066,
+          0.8262382116702662,
+          1.178462267993909
+        ],
+        "history_trend": 0.27236170473802707,
+        "zero_activity_probability": 0.13077638355813204
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "2",
+        "relative_activity": 1.0535088169199227,
+        "weekday_weights": [
+          1.0424441572203351,
+          0.8725480384139105,
+          1.074256321524789,
+          0.8555598569412834,
+          0.823656903068554,
+          1.25104868959437,
+          1.373101634264801
+        ],
+        "history_trend": -0.05623943184039221,
+        "zero_activity_probability": 0.1653190554237271
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "3",
+        "relative_activity": 1.0208981942442263,
+        "weekday_weights": [
+          0.8683691336563006,
+          1.0846699070102799,
+          1.1880308723497097,
+          0.9476342287928397,
+          1.184080164614791,
+          1.2336555084203455,
+          0.7825769676956166
+        ],
+        "history_trend": -0.06541315030914774,
+        "zero_activity_probability": 0.09684097224284738
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "4",
+        "relative_activity": 1.280243310749515,
+        "weekday_weights": [
+          1.0948053635432549,
+          1.0748501220740678,
+          0.8336326008965893,
+          0.8879850561236319,
+          0.8922706107774906,
+          1.2398940188044345,
+          0.7818224782581527
+        ],
+        "history_trend": 0.17127288314122524,
+        "zero_activity_probability": 0.08476255655021223
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "5",
+        "relative_activity": 1.0347671933163007,
+        "weekday_weights": [
+          0.8503186132173871,
+          0.9478970440865861,
+          1.0165013591964467,
+          1.09508589231977,
+          0.9922008126015669,
+          0.8413153071038629,
+          1.036664899334626
+        ],
+        "history_trend": 0.20384163831494467,
+        "zero_activity_probability": 0.11479114325461376
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "6",
+        "relative_activity": 1.5257597171754265,
+        "weekday_weights": [
+          0.8673505804122388,
+          0.8318751252712508,
+          0.9482376427718723,
+          1.0916929238074282,
+          1.0866471886468483,
+          1.256615372941051,
+          1.3828360152608943
+        ],
+        "history_trend": 0.28765810211929177,
+        "zero_activity_probability": 0.10746139181061859
+      },
+      {
+        "store_id": "1000000008",
+        "category_id": "7",
+        "relative_activity": 1.0118052583201838,
+        "weekday_weights": [
+          1.198203950936437,
+          1.0034379125307018,
+          0.8216557398973341,
+          0.9456104883989147,
+          0.9935139966729761,
+          1.26760285423453,
+          1.3647574961374276
+        ],
+        "history_trend": -0.027175328111717745,
+        "zero_activity_probability": 0.10834480587051727
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "1",
+        "relative_activity": 1.4075778480378838,
+        "weekday_weights": [
+          1.0191481436979601,
+          1.040423995569363,
+          0.9338031862175227,
+          0.8761249716629982,
+          0.9876673677230298,
+          0.7666785513770077,
+          1.0520753074083324
+        ],
+        "history_trend": -0.10638363074424034,
+        "zero_activity_probability": 0.09187367851448189
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "2",
+        "relative_activity": 1.5692860487843687,
+        "weekday_weights": [
+          1.138319695066195,
+          0.8084956801379839,
+          1.1355213392655636,
+          1.1052935302952955,
+          1.0011260668780801,
+          1.4655647533757,
+          0.9125658291065601
+        ],
+        "history_trend": -0.14429151542595575,
+        "zero_activity_probability": 0.11649258086857368
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "3",
+        "relative_activity": 1.0137684964045293,
+        "weekday_weights": [
+          0.8833538133015982,
+          0.8930575529913084,
+          1.119070536086189,
+          1.0813244968136124,
+          1.1779536984061036,
+          1.0060606388919218,
+          0.7232672553762729
+        ],
+        "history_trend": 0.14599233597981964,
+        "zero_activity_probability": 0.15483681827700296
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "4",
+        "relative_activity": 1.5759409244690534,
+        "weekday_weights": [
+          0.9440729547180715,
+          0.9545140068173109,
+          0.9963317022661453,
+          1.1282080447876024,
+          1.0260545192702197,
+          1.228602418524091,
+          1.2080044215586931
+        ],
+        "history_trend": 0.09764288133650217,
+        "zero_activity_probability": 0.10630917097655108
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "5",
+        "relative_activity": 0.8210909076171464,
+        "weekday_weights": [
+          0.8651432501122761,
+          1.0054025063432486,
+          0.9225185070238381,
+          0.9138616740110089,
+          1.1913358209584866,
+          1.1570346211924292,
+          1.2504452209938564
+        ],
+        "history_trend": -0.15571665701159348,
+        "zero_activity_probability": 0.1732875134719899
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "6",
+        "relative_activity": 1.4970010334560127,
+        "weekday_weights": [
+          1.0006674922125793,
+          1.0670758680461332,
+          1.0708693699267209,
+          1.1311192773534477,
+          0.8166253177547019,
+          1.069151545702605,
+          0.9736162657596211
+        ],
+        "history_trend": -0.03987419117123919,
+        "zero_activity_probability": 0.1622870620726949
+      },
+      {
+        "store_id": "1000000009",
+        "category_id": "7",
+        "relative_activity": 1.381339592381889,
+        "weekday_weights": [
+          0.9131745032778028,
+          1.056300044896524,
+          1.0020239322125108,
+          1.0498630043565642,
+          1.1545700455599597,
+          1.2668106974306959,
+          1.3417111666259012
+        ],
+        "history_trend": 0.0012996198810439896,
+        "zero_activity_probability": 0.13955491668125408
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "1",
+        "relative_activity": 1.1403238367437278,
+        "weekday_weights": [
+          0.8748846383576044,
+          1.0871834041685058,
+          1.0941536673464913,
+          0.9741382709478299,
+          1.0740878881255407,
+          1.4776118142098926,
+          1.4490749046993325
+        ],
+        "history_trend": 0.18849741493521632,
+        "zero_activity_probability": 0.13033912572761713
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "2",
+        "relative_activity": 0.8205246561236383,
+        "weekday_weights": [
+          0.8980141613571146,
+          1.1664648551570962,
+          0.952297991056538,
+          1.1608539565404172,
+          1.102391550017355,
+          1.1633663271680912,
+          0.7389326756760864
+        ],
+        "history_trend": 0.1417398038985136,
+        "zero_activity_probability": 0.17758290480854946
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "3",
+        "relative_activity": 0.7877220071340448,
+        "weekday_weights": [
+          1.0666600245633926,
+          1.0204293661625592,
+          1.1033757458850457,
+          1.0471522572573444,
+          0.856349012765202,
+          1.2428435560153783,
+          1.2874679276278134
+        ],
+        "history_trend": -0.1083948530645818,
+        "zero_activity_probability": 0.1037277934085783
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "4",
+        "relative_activity": 1.4083044657773298,
+        "weekday_weights": [
+          1.019989082952981,
+          0.9876472494579345,
+          1.0660579215731327,
+          0.8204986612083242,
+          0.8942165899107755,
+          0.7154819142862469,
+          0.793987623322585
+        ],
+        "history_trend": 0.12527425932010078,
+        "zero_activity_probability": 0.09427957101611101
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "5",
+        "relative_activity": 0.7743934453643561,
+        "weekday_weights": [
+          0.896815768767215,
+          0.8621430921477444,
+          1.1563558261053988,
+          0.8418820874168883,
+          0.9809020640629703,
+          1.1416399899795202,
+          0.9860556200019988
+        ],
+        "history_trend": 0.1530042282499161,
+        "zero_activity_probability": 0.08907196090537652
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "6",
+        "relative_activity": 1.5757168674648137,
+        "weekday_weights": [
+          1.1956529773191955,
+          1.0761391658550061,
+          0.9264812276421335,
+          1.1680522564679414,
+          1.1874910118265116,
+          1.3408865624780284,
+          0.9402011207040303
+        ],
+        "history_trend": 0.011051639007750969,
+        "zero_activity_probability": 0.12016919449242455
+      },
+      {
+        "store_id": "1000000010",
+        "category_id": "7",
+        "relative_activity": 1.1795291833508519,
+        "weekday_weights": [
+          0.8368347618258046,
+          1.0321742906037663,
+          1.186570515273872,
+          0.9045875359721107,
+          0.9825628232974415,
+          0.702065225471071,
+          0.9829673857824164
+        ],
+        "history_trend": -0.16185973159835293,
+        "zero_activity_probability": 0.1198896529934913
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "1",
+        "relative_activity": 1.4304044770145299,
+        "weekday_weights": [
+          0.943391950166016,
+          1.0741580595023605,
+          0.9472652228388325,
+          1.188017436405263,
+          1.1723642235183223,
+          1.3710044127576229,
+          1.0937864137235065
+        ],
+        "history_trend": -0.05384655504437358,
+        "zero_activity_probability": 0.1612152512640188
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "2",
+        "relative_activity": 1.2138907335152513,
+        "weekday_weights": [
+          1.150831845988657,
+          1.0238448027749842,
+          1.1403396468035627,
+          1.159976794319686,
+          1.0156870747159121,
+          0.9873590800455567,
+          0.829502051361952
+        ],
+        "history_trend": -0.17023363875805853,
+        "zero_activity_probability": 0.1253842318614523
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "3",
+        "relative_activity": 0.729315626809996,
+        "weekday_weights": [
+          1.1467440558974071,
+          1.0378112052971284,
+          0.8100408074096668,
+          1.0936279591808793,
+          1.1202798241299696,
+          0.9758394057618641,
+          1.2351255192979265
+        ],
+        "history_trend": -0.1634245041057551,
+        "zero_activity_probability": 0.12324637585927792
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "4",
+        "relative_activity": 0.7090924356248091,
+        "weekday_weights": [
+          0.8483456253094108,
+          1.1104587636269048,
+          0.9569511676975576,
+          1.0769617015740192,
+          0.8450310296467607,
+          1.0224083058067293,
+          1.1441818835350301
+        ],
+        "history_trend": -0.14503454595598514,
+        "zero_activity_probability": 0.14828495766707012
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "5",
+        "relative_activity": 0.8360218146056735,
+        "weekday_weights": [
+          1.1112087998840487,
+          0.8504304204196338,
+          1.1248698375010846,
+          1.082137153691284,
+          0.9520932997136065,
+          1.4274625066488673,
+          1.00323978165115
+        ],
+        "history_trend": -0.17602608207323328,
+        "zero_activity_probability": 0.14362685106357764
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "6",
+        "relative_activity": 1.4562281574791633,
+        "weekday_weights": [
+          0.8180229395796991,
+          0.9217024559226443,
+          1.0500113781824691,
+          1.1209307469177432,
+          1.1723313904190036,
+          1.0650138833965457,
+          0.703984813963973
+        ],
+        "history_trend": 0.20308805451702033,
+        "zero_activity_probability": 0.0831250275950719
+      },
+      {
+        "store_id": "1000000011",
+        "category_id": "7",
+        "relative_activity": 0.9304027058391231,
+        "weekday_weights": [
+          0.9656300484716575,
+          0.9223649382466003,
+          0.8079644473733545,
+          0.8260873188262956,
+          0.9341587160367901,
+          1.4243540436252586,
+          0.7785699039138367
+        ],
+        "history_trend": -0.15353229428003645,
+        "zero_activity_probability": 0.10904526345921894
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "1",
+        "relative_activity": 1.547609081546267,
+        "weekday_weights": [
+          1.0904252640003742,
+          1.0173672845393218,
+          1.1432462924042373,
+          0.929471435976565,
+          0.9525762664754401,
+          1.3922820485364487,
+          1.1606639266271126
+        ],
+        "history_trend": -0.14798053692316565,
+        "zero_activity_probability": 0.08595696381643975
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "2",
+        "relative_activity": 1.5304100738119377,
+        "weekday_weights": [
+          0.8261174423802404,
+          0.9875790546326609,
+          0.8040916282440295,
+          1.1262320162319672,
+          0.9363849984352619,
+          1.133280797716026,
+          0.9133543342666304
+        ],
+        "history_trend": -0.17219378228754567,
+        "zero_activity_probability": 0.13547956832639674
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "3",
+        "relative_activity": 1.094571978707952,
+        "weekday_weights": [
+          0.8977099861257076,
+          1.0757349137922174,
+          0.9987917693628985,
+          0.8079329218464799,
+          0.9024487402291758,
+          1.4983850062068498,
+          1.4452738946004846
+        ],
+        "history_trend": -0.1447991296434316,
+        "zero_activity_probability": 0.17844992488214556
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "4",
+        "relative_activity": 0.7900094135477045,
+        "weekday_weights": [
+          1.0769005177926374,
+          1.1893416653406657,
+          0.978283023788005,
+          0.8157303465900377,
+          0.8316661879936386,
+          1.496793315195657,
+          1.2490545143087703
+        ],
+        "history_trend": -0.16053443554133023,
+        "zero_activity_probability": 0.09991165519452261
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "5",
+        "relative_activity": 1.3680524618642929,
+        "weekday_weights": [
+          1.102913766403642,
+          1.15284776571082,
+          0.939202662269872,
+          0.8530118478807585,
+          1.0259997901088502,
+          1.392370600738144,
+          0.7742042956915558
+        ],
+        "history_trend": -0.09719182938662557,
+        "zero_activity_probability": 0.08748108997823455
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "6",
+        "relative_activity": 0.9818546925787541,
+        "weekday_weights": [
+          1.126354119194019,
+          1.1300812206148696,
+          0.8543344343693923,
+          1.177755431155957,
+          1.1522720509941822,
+          0.7860300949872325,
+          1.3638537509348136
+        ],
+        "history_trend": 0.27327591245262467,
+        "zero_activity_probability": 0.1756085192944668
+      },
+      {
+        "store_id": "1000000012",
+        "category_id": "7",
+        "relative_activity": 0.9109525298439578,
+        "weekday_weights": [
+          0.9979976830556684,
+          0.9985388694858469,
+          1.1938997697646139,
+          0.8163361226343026,
+          1.1429426330806676,
+          0.7947749091433356,
+          1.0505831812511017
+        ],
+        "history_trend": 0.17098111973047603,
+        "zero_activity_probability": 0.08367799619300255
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "1",
+        "relative_activity": 1.2050514210848347,
+        "weekday_weights": [
+          0.8687007827075037,
+          0.9159306701793346,
+          0.986075412847818,
+          0.8062586872010473,
+          0.9750455550641969,
+          1.0331002634196185,
+          0.730712787458512
+        ],
+        "history_trend": 0.24523346129912327,
+        "zero_activity_probability": 0.15140266433471242
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "2",
+        "relative_activity": 1.4705127075123543,
+        "weekday_weights": [
+          0.9038680511372444,
+          1.1073045718537222,
+          0.9555638402147786,
+          0.9106022827364377,
+          1.1722754354164397,
+          0.9441344860326049,
+          0.9910024255092436
+        ],
+        "history_trend": 0.26685753110838356,
+        "zero_activity_probability": 0.15115279525873002
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "3",
+        "relative_activity": 0.7308619900038207,
+        "weekday_weights": [
+          0.9638940662707957,
+          0.846900921372538,
+          1.1982562354850876,
+          0.9322516474988581,
+          0.8550872013356916,
+          1.0214915916929415,
+          0.8025164715175063
+        ],
+        "history_trend": 0.008167950206187824,
+        "zero_activity_probability": 0.17476900196608022
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "4",
+        "relative_activity": 1.2266440667347156,
+        "weekday_weights": [
+          0.8955383046404912,
+          1.1190858693606593,
+          1.021075488999566,
+          1.0412369674380355,
+          1.1709006856668975,
+          1.3145254341333836,
+          1.1878053516737412
+        ],
+        "history_trend": 0.26230506359323313,
+        "zero_activity_probability": 0.12617266610239444
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "5",
+        "relative_activity": 0.8686777214698224,
+        "weekday_weights": [
+          0.9708733987840336,
+          0.9264769030418271,
+          0.899141007288858,
+          0.8426071602637661,
+          0.9651563371347438,
+          0.8920995756045986,
+          1.3854824838076385
+        ],
+        "history_trend": 0.201200869636406,
+        "zero_activity_probability": 0.1251508500560708
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "6",
+        "relative_activity": 1.1181294141056966,
+        "weekday_weights": [
+          0.9822084549873522,
+          1.0496857185072748,
+          1.0566352298821304,
+          1.1792197289363533,
+          0.8875255649742534,
+          1.066064987649007,
+          0.9503961063384154
+        ],
+        "history_trend": 0.21453362324800768,
+        "zero_activity_probability": 0.16110107383467973
+      },
+      {
+        "store_id": "1000000013",
+        "category_id": "7",
+        "relative_activity": 1.4764595343299436,
+        "weekday_weights": [
+          0.904660061138171,
+          1.1544941560999988,
+          0.841548470003339,
+          1.119032850159552,
+          0.8653781636752481,
+          0.782939257501921,
+          0.7476464932720185
+        ],
+        "history_trend": 0.10449695862169295,
+        "zero_activity_probability": 0.09335420818322725
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "1",
+        "relative_activity": 0.8547668825824528,
+        "weekday_weights": [
+          0.8770902191494321,
+          1.016217299364034,
+          0.8191231545368431,
+          0.8365073456608401,
+          1.1580379147815447,
+          0.885232897941372,
+          1.13020965566204
+        ],
+        "history_trend": 0.13353505302901025,
+        "zero_activity_probability": 0.17383640263309688
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "2",
+        "relative_activity": 1.3517421081572603,
+        "weekday_weights": [
+          1.1890431457914183,
+          1.0036745075811937,
+          0.8877065901877149,
+          0.926973122481174,
+          1.0601562775677582,
+          0.9072633835361925,
+          1.182591131958509
+        ],
+        "history_trend": 0.0827227579420004,
+        "zero_activity_probability": 0.10207228839163246
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "3",
+        "relative_activity": 1.2960713248503248,
+        "weekday_weights": [
+          1.1689730257672002,
+          0.9027390622362087,
+          1.155412699642305,
+          1.0149832282338989,
+          0.8001083387245747,
+          0.8340365541923667,
+          1.2350562024583849
+        ],
+        "history_trend": 0.18299227712014615,
+        "zero_activity_probability": 0.11840839324948134
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "4",
+        "relative_activity": 1.4428216279740438,
+        "weekday_weights": [
+          1.0391447376289098,
+          0.9549424170352337,
+          0.8646464247401386,
+          0.9054433280920694,
+          0.8937937846259534,
+          0.8362556126957199,
+          1.2005243742400216
+        ],
+        "history_trend": 0.23853401942894742,
+        "zero_activity_probability": 0.08133081155964635
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "5",
+        "relative_activity": 1.0402956050076129,
+        "weekday_weights": [
+          0.9960277077868017,
+          1.133490485932885,
+          0.9532493087667667,
+          0.8831094928822661,
+          0.8746216228928454,
+          0.7297639210235058,
+          0.8983077683963939
+        ],
+        "history_trend": 0.22200523361568186,
+        "zero_activity_probability": 0.13870521886902834
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "6",
+        "relative_activity": 0.7000757541613073,
+        "weekday_weights": [
+          1.058923432700082,
+          1.1828245616601456,
+          0.9406919183642475,
+          0.8378401839223157,
+          0.8783280931999784,
+          1.2865857910054506,
+          1.2965035653431745
+        ],
+        "history_trend": -0.07787299234978357,
+        "zero_activity_probability": 0.10863068425783982
+      },
+      {
+        "store_id": "1000000014",
+        "category_id": "7",
+        "relative_activity": 1.3476572216323752,
+        "weekday_weights": [
+          0.9139052697860066,
+          1.0074997888221773,
+          0.9489425047128228,
+          0.8573626528212032,
+          0.8613694480048057,
+          1.3043726830867826,
+          1.0380686209156635
+        ],
+        "history_trend": 0.28163034093712513,
+        "zero_activity_probability": 0.14660040671963365
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "1",
+        "relative_activity": 1.153090191555624,
+        "weekday_weights": [
+          1.1504685363314304,
+          1.0747426164704654,
+          1.0913723975492182,
+          0.9604743206658011,
+          0.8860317034883554,
+          0.7105669890093167,
+          1.2113218656435074
+        ],
+        "history_trend": -0.06704887183408609,
+        "zero_activity_probability": 0.13017934781976928
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "2",
+        "relative_activity": 0.7852996026754763,
+        "weekday_weights": [
+          0.8198519225198513,
+          1.167039857455735,
+          1.1289340351498995,
+          0.8239581655484154,
+          1.1493032284405134,
+          1.2356343147140687,
+          0.8354211015409098
+        ],
+        "history_trend": -0.120063713991586,
+        "zero_activity_probability": 0.17351496569802694
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "3",
+        "relative_activity": 1.3148516784823232,
+        "weekday_weights": [
+          1.024291980383447,
+          1.004746524615518,
+          1.1408082974072917,
+          1.0785826213517447,
+          1.1814388836679488,
+          0.8195510837291013,
+          1.4745742043536845
+        ],
+        "history_trend": -0.16039270815735612,
+        "zero_activity_probability": 0.08468378253318046
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "4",
+        "relative_activity": 1.2608128418488809,
+        "weekday_weights": [
+          1.0442119704281154,
+          1.1830818664513973,
+          1.0141408674060486,
+          0.9992416586220062,
+          0.961981363930674,
+          0.7912699882828536,
+          1.3551659928567203
+        ],
+        "history_trend": 0.036880840261214465,
+        "zero_activity_probability": 0.08769975512400649
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "5",
+        "relative_activity": 1.3811261518395463,
+        "weekday_weights": [
+          0.9579927475004151,
+          0.8068705414565905,
+          0.9677952812434734,
+          0.9782889836127623,
+          0.997240973958015,
+          1.339121509527043,
+          1.1738161518373331
+        ],
+        "history_trend": 0.24817566931557,
+        "zero_activity_probability": 0.13578083810708616
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "6",
+        "relative_activity": 0.9532481742388601,
+        "weekday_weights": [
+          0.9882059871118545,
+          0.8473919858213512,
+          0.9989327952081529,
+          1.0645200067596892,
+          0.9019415095789401,
+          0.7634073607562264,
+          0.8660576524186075
+        ],
+        "history_trend": 0.012807168897667143,
+        "zero_activity_probability": 0.17641129575169062
+      },
+      {
+        "store_id": "1000000015",
+        "category_id": "7",
+        "relative_activity": 0.8061240002687877,
+        "weekday_weights": [
+          1.1567333884952316,
+          1.1184355312652656,
+          0.9259650470426425,
+          1.0829780760685732,
+          0.9617910288200735,
+          1.4928780481069424,
+          1.0263203028489847
+        ],
+        "history_trend": -0.16004169729049744,
+        "zero_activity_probability": 0.13091566235175223
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "1",
+        "relative_activity": 1.5702045326501635,
+        "weekday_weights": [
+          1.177360377765883,
+          0.947348448879005,
+          1.1216340911514817,
+          0.892746251465321,
+          1.1795790048122834,
+          1.204173545107089,
+          0.7966650825446205
+        ],
+        "history_trend": 0.04400736169337294,
+        "zero_activity_probability": 0.12247783715897448
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "2",
+        "relative_activity": 1.2672798485823735,
+        "weekday_weights": [
+          1.0536327801678635,
+          1.0079390184118557,
+          1.1248627972790426,
+          0.9948485644813402,
+          1.0981249269237683,
+          0.7804652968023027,
+          1.1319770742789714
+        ],
+        "history_trend": 0.018866544431248744,
+        "zero_activity_probability": 0.11729057949407547
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "3",
+        "relative_activity": 1.3424271572779516,
+        "weekday_weights": [
+          0.8068238501153144,
+          1.178922247857182,
+          0.8104216245388972,
+          1.0738605280606046,
+          0.9343068996764317,
+          0.7842587763933961,
+          1.0843858935097552
+        ],
+        "history_trend": -0.02706721044771887,
+        "zero_activity_probability": 0.1107059976224391
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "4",
+        "relative_activity": 1.413323541989639,
+        "weekday_weights": [
+          1.0190849944249742,
+          1.1954417819953433,
+          0.9616385517904646,
+          1.0136034261827958,
+          1.1604291286665946,
+          0.9314550899021115,
+          0.8137351338167372
+        ],
+        "history_trend": -0.10439586977065574,
+        "zero_activity_probability": 0.13333532410658921
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "5",
+        "relative_activity": 1.379218388627292,
+        "weekday_weights": [
+          1.0296499880063814,
+          0.9281744462113252,
+          1.170721138513243,
+          1.0001461302989605,
+          1.1734846343935148,
+          1.035349555552169,
+          1.0071122088681896
+        ],
+        "history_trend": -0.07214031911068786,
+        "zero_activity_probability": 0.08433549051746106
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "6",
+        "relative_activity": 0.9534137363585785,
+        "weekday_weights": [
+          0.8097712622137043,
+          1.0899602026227184,
+          0.8042800052256353,
+          1.0725158827092514,
+          0.9397114013768427,
+          0.874209760726503,
+          0.8614406163680037
+        ],
+        "history_trend": 0.12405153575750144,
+        "zero_activity_probability": 0.1314754023023127
+      },
+      {
+        "store_id": "1000000016",
+        "category_id": "7",
+        "relative_activity": 1.035729654231921,
+        "weekday_weights": [
+          1.0243191095431474,
+          0.9488402821949188,
+          1.180703302834445,
+          0.8656957843022224,
+          0.8022318039192418,
+          0.8785502114282846,
+          0.7381099643441682
+        ],
+        "history_trend": -0.15514914920438694,
+        "zero_activity_probability": 0.13677652758584719
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "1",
+        "relative_activity": 0.7752139851070887,
+        "weekday_weights": [
+          1.0074209177979019,
+          1.1804311373120444,
+          0.8470413505205043,
+          0.9019047653068041,
+          0.9035720191096884,
+          1.262779078398136,
+          1.017984111302482
+        ],
+        "history_trend": 0.12383681040038658,
+        "zero_activity_probability": 0.11072625477113004
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "2",
+        "relative_activity": 1.4810884716712156,
+        "weekday_weights": [
+          1.03906520214435,
+          1.0935317638403155,
+          1.166193516794464,
+          1.1041992056727248,
+          1.165478264115607,
+          0.8972088744703868,
+          0.7238337704090054
+        ],
+        "history_trend": 0.06434735093126664,
+        "zero_activity_probability": 0.12837412626679248
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "3",
+        "relative_activity": 0.9756546879096656,
+        "weekday_weights": [
+          1.077205901711767,
+          0.9587161657462384,
+          1.0959668411572814,
+          1.1268372786215957,
+          1.0306582383047442,
+          1.00932054387398,
+          1.3775033696318255
+        ],
+        "history_trend": 0.2149272561606076,
+        "zero_activity_probability": 0.16155374957191332
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "4",
+        "relative_activity": 0.9340461310944463,
+        "weekday_weights": [
+          0.8350469492170471,
+          1.0769104682941375,
+          0.9956826282620538,
+          0.8566365284654553,
+          1.0052869764394758,
+          0.8015571868134256,
+          0.8124800499519527
+        ],
+        "history_trend": 0.28088138474367286,
+        "zero_activity_probability": 0.1654985360294332
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "5",
+        "relative_activity": 1.161313199698343,
+        "weekday_weights": [
+          0.9750010020069677,
+          1.0205653492360114,
+          1.1343667125974242,
+          1.1901049550045784,
+          1.1543875531689216,
+          1.0725359048001701,
+          0.917296622586806
+        ],
+        "history_trend": 0.13355025881777305,
+        "zero_activity_probability": 0.14680147144942823
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "6",
+        "relative_activity": 1.2820147546779181,
+        "weekday_weights": [
+          1.0889173422548684,
+          0.9400966509002254,
+          0.9193568366447648,
+          1.0339223000587026,
+          1.103725847619177,
+          1.4712577533983802,
+          0.8335796088910976
+        ],
+        "history_trend": -0.09851916038842173,
+        "zero_activity_probability": 0.08902811270144993
+      },
+      {
+        "store_id": "1000000017",
+        "category_id": "7",
+        "relative_activity": 1.4465476020794408,
+        "weekday_weights": [
+          1.049690237289397,
+          1.1263328732227036,
+          1.1286906910793466,
+          1.0262360400812942,
+          1.1253071917252522,
+          1.04821675651342,
+          1.2708230248636845
+        ],
+        "history_trend": -0.10073431832397839,
+        "zero_activity_probability": 0.08395095815286167
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "1",
+        "relative_activity": 1.1180695060679982,
+        "weekday_weights": [
+          0.9991285605008813,
+          1.0735509020789935,
+          1.0209597812911484,
+          0.9825048221105681,
+          1.0793178208153247,
+          1.4438483159895523,
+          1.1088424120934015
+        ],
+        "history_trend": 0.02760180027383341,
+        "zero_activity_probability": 0.11253582355886482
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "2",
+        "relative_activity": 1.0257950109842868,
+        "weekday_weights": [
+          0.9320818861323387,
+          1.129406543878708,
+          1.0284388412757246,
+          1.1499517795566154,
+          0.9180495981588119,
+          0.9240231787260524,
+          0.972307379184967
+        ],
+        "history_trend": -0.04638639634883973,
+        "zero_activity_probability": 0.17038004061521797
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "3",
+        "relative_activity": 0.9226914348390183,
+        "weekday_weights": [
+          1.0205003425347439,
+          1.1407389671176904,
+          1.0019698526109138,
+          1.1271503672590333,
+          0.9399203867208048,
+          0.9480177165543178,
+          1.0325476032591834
+        ],
+        "history_trend": 0.25635662244296314,
+        "zero_activity_probability": 0.13549539869199706
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "4",
+        "relative_activity": 1.1193264917475931,
+        "weekday_weights": [
+          1.19942200419497,
+          1.0167091398501311,
+          0.9470908374926019,
+          1.1835771812705178,
+          1.1230415722890716,
+          1.418725506249827,
+          1.4268128802280904
+        ],
+        "history_trend": -0.042130246736333365,
+        "zero_activity_probability": 0.10421111949697318
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "5",
+        "relative_activity": 1.4737623128260176,
+        "weekday_weights": [
+          1.0688102559592763,
+          1.0603814109991263,
+          1.197324451395153,
+          0.9886682092830191,
+          1.188092383513594,
+          1.3529710981317216,
+          1.3267660641664307
+        ],
+        "history_trend": 0.18304698744647946,
+        "zero_activity_probability": 0.0972277368507727
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "6",
+        "relative_activity": 1.0793787394423824,
+        "weekday_weights": [
+          0.971273971066052,
+          1.145605342846774,
+          0.8894937888572167,
+          0.9946370867019272,
+          0.8546631415931024,
+          1.4440415968176608,
+          1.0868183359599826
+        ],
+        "history_trend": -0.027794934927731274,
+        "zero_activity_probability": 0.08912977960289123
+      },
+      {
+        "store_id": "1000000018",
+        "category_id": "7",
+        "relative_activity": 1.1814564512318855,
+        "weekday_weights": [
+          1.1630207921915665,
+          1.0926673527900446,
+          1.0287777713852984,
+          0.8404739786992915,
+          0.8133475188427717,
+          0.9379909686120964,
+          1.1425160738462574
+        ],
+        "history_trend": 0.05183882264497042,
+        "zero_activity_probability": 0.12957706480414627
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "1",
+        "relative_activity": 1.4140182142526554,
+        "weekday_weights": [
+          0.8311435770446681,
+          0.8155114987527543,
+          0.8973699264226077,
+          0.9216741123391557,
+          1.1102678323046649,
+          0.7921444487861423,
+          0.7511305312649741
+        ],
+        "history_trend": 0.25184290222649597,
+        "zero_activity_probability": 0.1702554611059248
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "2",
+        "relative_activity": 1.0198210646889914,
+        "weekday_weights": [
+          0.8864926106753006,
+          0.9961247374044748,
+          0.9477997448281028,
+          1.147719868692912,
+          1.1473855179269385,
+          1.3294710766534303,
+          1.497134664559179
+        ],
+        "history_trend": -0.1505557676807523,
+        "zero_activity_probability": 0.0875952119680483
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "3",
+        "relative_activity": 0.6556284875108553,
+        "weekday_weights": [
+          1.0681954265850915,
+          0.8678299177555981,
+          0.8299974722009631,
+          1.0313692774964964,
+          1.0657767966374434,
+          1.0329721689783296,
+          0.8338022211643118
+        ],
+        "history_trend": -0.035262821876163475,
+        "zero_activity_probability": 0.10269278093671713
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "4",
+        "relative_activity": 0.8733316941155062,
+        "weekday_weights": [
+          0.9217199082231083,
+          1.1839288433113417,
+          1.1516804721261922,
+          1.0639138146477605,
+          0.971143318439167,
+          0.7070412228465157,
+          1.0481936942642578
+        ],
+        "history_trend": -0.19370747769992025,
+        "zero_activity_probability": 0.17154478767541634
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "5",
+        "relative_activity": 1.2937173324699391,
+        "weekday_weights": [
+          0.808619783641471,
+          1.0148799942221816,
+          0.961423783444612,
+          1.116403577589346,
+          1.1519695683822306,
+          0.8014483312040865,
+          0.923945483128199
+        ],
+        "history_trend": 0.2515509361153519,
+        "zero_activity_probability": 0.14800239534654797
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "6",
+        "relative_activity": 1.1759492028965954,
+        "weekday_weights": [
+          0.9414614226634977,
+          0.8761187168357036,
+          0.8870064282137738,
+          1.1570045210409914,
+          1.0721557770471957,
+          0.7435643516332279,
+          0.7548926611910697
+        ],
+        "history_trend": 0.08385275503879391,
+        "zero_activity_probability": 0.16448675017522596
+      },
+      {
+        "store_id": "1000000019",
+        "category_id": "7",
+        "relative_activity": 1.1757041698115844,
+        "weekday_weights": [
+          0.9452252321092638,
+          0.9916272129994194,
+          1.0246964864881298,
+          1.1260128572957224,
+          1.1490697519451114,
+          0.9572787887590382,
+          1.3146571875112216
+        ],
+        "history_trend": -0.03008599941930551,
+        "zero_activity_probability": 0.13655624224642213
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "1",
+        "relative_activity": 1.1128720074762495,
+        "weekday_weights": [
+          1.1749468469412412,
+          0.9781312667254484,
+          1.0827820133680075,
+          0.8891522008411107,
+          1.0294607699071328,
+          1.2593927994301353,
+          0.9516196960339813
+        ],
+        "history_trend": -0.07902513187369714,
+        "zero_activity_probability": 0.14583735773151413
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "2",
+        "relative_activity": 0.6739074570713238,
+        "weekday_weights": [
+          1.088488608832661,
+          1.1820357291278831,
+          0.870061166173288,
+          1.1562954225266067,
+          0.8334583748007998,
+          1.4255450598135375,
+          1.3291421144264897
+        ],
+        "history_trend": 0.23377654664094782,
+        "zero_activity_probability": 0.13714917042602692
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "3",
+        "relative_activity": 1.064730051755296,
+        "weekday_weights": [
+          0.8674980191661137,
+          1.0809164859682074,
+          0.9672749806997593,
+          0.8753643677381011,
+          0.9929797568936344,
+          0.7736684672532815,
+          1.2073103793931397
+        ],
+        "history_trend": 0.2991199314343999,
+        "zero_activity_probability": 0.11115902418036906
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "4",
+        "relative_activity": 0.707449029713482,
+        "weekday_weights": [
+          0.9686669932265177,
+          0.8196282952410099,
+          1.0914250534332393,
+          0.9878300273804751,
+          0.8611798924697663,
+          1.2457697555245768,
+          0.7873550386221607
+        ],
+        "history_trend": 0.2162791631200262,
+        "zero_activity_probability": 0.1580241616896697
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "5",
+        "relative_activity": 1.1353748688251732,
+        "weekday_weights": [
+          1.0965996559858913,
+          0.8635242737178597,
+          1.0650767788209936,
+          0.9278580831583698,
+          1.0344090065022835,
+          1.260181854999395,
+          1.24359395988485
+        ],
+        "history_trend": -0.16595528989303726,
+        "zero_activity_probability": 0.09081625475980437
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "6",
+        "relative_activity": 1.424764241616205,
+        "weekday_weights": [
+          0.9459216496962467,
+          1.0906769865583694,
+          1.0440096080091241,
+          0.9693866765832251,
+          0.9770200346509008,
+          0.8540241526466744,
+          1.2298600666939312
+        ],
+        "history_trend": -0.1553607700166481,
+        "zero_activity_probability": 0.1341665135203877
+      },
+      {
+        "store_id": "1000000020",
+        "category_id": "7",
+        "relative_activity": 0.8151748940524977,
+        "weekday_weights": [
+          1.1974568814704054,
+          0.948880298842717,
+          1.1335659110185352,
+          1.0403736462628244,
+          0.9842309333216389,
+          0.7550146438876154,
+          1.3169350738781744
+        ],
+        "history_trend": 0.2439144019848677,
+        "zero_activity_probability": 0.1704558862567653
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "1",
+        "relative_activity": 1.1498195379896865,
+        "weekday_weights": [
+          1.1020613407121418,
+          1.0230302503547912,
+          0.8984736525292774,
+          1.1564251829157222,
+          0.9731624636659129,
+          0.8918401778607641,
+          0.7103057819598937
+        ],
+        "history_trend": 0.006877086576249691,
+        "zero_activity_probability": 0.14484667250310368
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "2",
+        "relative_activity": 1.2678805668495876,
+        "weekday_weights": [
+          1.1087693792935482,
+          1.0308056684950144,
+          0.9943159990000777,
+          1.1583729433768775,
+          0.92842623783863,
+          1.2301516162172101,
+          0.9393049198093525
+        ],
+        "history_trend": 0.20218614795586287,
+        "zero_activity_probability": 0.15107022487959654
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "3",
+        "relative_activity": 1.3064422970255727,
+        "weekday_weights": [
+          0.8482737392501957,
+          1.0675833528037273,
+          0.9643821129901087,
+          0.9373504272261566,
+          1.1091238306174673,
+          0.9285985707440441,
+          1.1100526707212341
+        ],
+        "history_trend": 0.21244818853802516,
+        "zero_activity_probability": 0.11641330385329623
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "4",
+        "relative_activity": 1.177093643725227,
+        "weekday_weights": [
+          0.8749957197010738,
+          0.9740381455307986,
+          0.9544146559423221,
+          0.8759019463014349,
+          0.9312519209126927,
+          1.463788829391895,
+          0.797737552959946
+        ],
+        "history_trend": 0.035507392774451696,
+        "zero_activity_probability": 0.08929629362156052
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "5",
+        "relative_activity": 0.8165620902941635,
+        "weekday_weights": [
+          0.8506923607462036,
+          1.0622739127070178,
+          0.8379417965836182,
+          0.9329335711132349,
+          1.1482941634192292,
+          1.4373700710122006,
+          0.8226886210985649
+        ],
+        "history_trend": 0.10348255582256805,
+        "zero_activity_probability": 0.0999586334260647
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "6",
+        "relative_activity": 0.8535623245513202,
+        "weekday_weights": [
+          0.8957107885378904,
+          0.8648204662994473,
+          0.9549770199788762,
+          0.8242819785070136,
+          0.829907234385779,
+          0.7505010270989692,
+          1.261467069661879
+        ],
+        "history_trend": -0.1631372617567241,
+        "zero_activity_probability": 0.11169679986649361
+      },
+      {
+        "store_id": "1000000021",
+        "category_id": "7",
+        "relative_activity": 0.706962472626995,
+        "weekday_weights": [
+          0.9263402846765476,
+          1.1125572916732287,
+          0.8277493672325805,
+          1.144061644441604,
+          0.8369191801440381,
+          1.2596140982382296,
+          1.064853316434167
+        ],
+        "history_trend": 0.24097151990290755,
+        "zero_activity_probability": 0.17152077158969334
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "1",
+        "relative_activity": 1.446261371310504,
+        "weekday_weights": [
+          1.1388667261865748,
+          1.0812915232930829,
+          0.9609126346483506,
+          0.8675700069485172,
+          1.1949751650269347,
+          0.9469641180136925,
+          1.3175528939111376
+        ],
+        "history_trend": -0.16715938319753393,
+        "zero_activity_probability": 0.14298809251772765
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "2",
+        "relative_activity": 1.3729899033987392,
+        "weekday_weights": [
+          0.8035907448869021,
+          1.111339955705944,
+          0.8335453315112157,
+          1.0010683646746212,
+          0.8756331573874134,
+          0.8587500134997563,
+          1.2007512781300873
+        ],
+        "history_trend": 0.22206456611836112,
+        "zero_activity_probability": 0.14470429364558565
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "3",
+        "relative_activity": 1.2654527140355918,
+        "weekday_weights": [
+          0.8907885282567949,
+          1.1271534085016504,
+          0.821069307326738,
+          1.0422680548429728,
+          1.1603510750126864,
+          1.1277824933087814,
+          0.7085175046186261
+        ],
+        "history_trend": 0.16318263199887606,
+        "zero_activity_probability": 0.1100948267713164
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "4",
+        "relative_activity": 0.7852420590917226,
+        "weekday_weights": [
+          0.8176619239928975,
+          1.0487224239584976,
+          1.1939030723663828,
+          1.0618433561928962,
+          0.8597602327666113,
+          0.7295557539873511,
+          0.8105323483228452
+        ],
+        "history_trend": 0.15842355047602286,
+        "zero_activity_probability": 0.15331397048561196
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "5",
+        "relative_activity": 1.0538555425606406,
+        "weekday_weights": [
+          0.8478977031450341,
+          1.090026794320457,
+          0.9812905028670881,
+          0.8964115821209764,
+          0.9220977728766687,
+          1.2176209737974917,
+          1.2134950502438788
+        ],
+        "history_trend": 0.2947483756019333,
+        "zero_activity_probability": 0.11437210407770944
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "6",
+        "relative_activity": 1.3673026689397463,
+        "weekday_weights": [
+          0.9569618082282672,
+          1.038462914739968,
+          1.1760593805729374,
+          0.9918528054534402,
+          0.9074980968502874,
+          1.148955984890784,
+          1.100484047577622
+        ],
+        "history_trend": 0.011411330793822339,
+        "zero_activity_probability": 0.1326066830344363
+      },
+      {
+        "store_id": "1000000022",
+        "category_id": "7",
+        "relative_activity": 1.4376608610458566,
+        "weekday_weights": [
+          1.1249258384731826,
+          0.811746382389016,
+          0.9593602273640327,
+          1.0950917179720847,
+          0.925145871257093,
+          1.1362702218033678,
+          0.8450043383671406
+        ],
+        "history_trend": 0.09387409447954692,
+        "zero_activity_probability": 0.13563812619997312
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "1",
+        "relative_activity": 0.8432856865196899,
+        "weekday_weights": [
+          1.0107776182866084,
+          0.9909110954835335,
+          1.0669010061897484,
+          0.9269215820208696,
+          1.1572915289736452,
+          0.871777239827514,
+          0.9904501851354246
+        ],
+        "history_trend": -0.049797520693296626,
+        "zero_activity_probability": 0.1498900844425282
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "2",
+        "relative_activity": 1.3790951806382301,
+        "weekday_weights": [
+          0.8922762979780048,
+          0.9268317893337354,
+          1.0503828344424697,
+          0.9141403271815394,
+          0.8066813344265499,
+          1.0374901114312027,
+          1.1427998659982865
+        ],
+        "history_trend": -0.029429070026183668,
+        "zero_activity_probability": 0.15419942439885514
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "3",
+        "relative_activity": 1.2856386244073064,
+        "weekday_weights": [
+          1.0832968607698044,
+          0.9819688591004925,
+          0.8342509567007707,
+          1.139836829713913,
+          0.9254993805681384,
+          1.2615168120205977,
+          0.7029093031357426
+        ],
+        "history_trend": -0.10240975850636058,
+        "zero_activity_probability": 0.11046976208705439
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "4",
+        "relative_activity": 0.7506936694808612,
+        "weekday_weights": [
+          0.8055017438004038,
+          1.027792938432875,
+          1.0904791820809807,
+          1.0867015772429975,
+          0.95033569139577,
+          0.8904232034977776,
+          1.3767936892601784
+        ],
+        "history_trend": -0.011100064440299262,
+        "zero_activity_probability": 0.14827767286861812
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "5",
+        "relative_activity": 1.5214173481855364,
+        "weekday_weights": [
+          0.8999165891006179,
+          0.8888891677354759,
+          1.1230292903988208,
+          0.8551295508469119,
+          1.1346545857151054,
+          0.8490994771878841,
+          1.160630775329845
+        ],
+        "history_trend": -0.03202245337827153,
+        "zero_activity_probability": 0.11258005739611993
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "6",
+        "relative_activity": 0.6928421577460788,
+        "weekday_weights": [
+          1.1193994480435063,
+          0.9209097848893437,
+          0.8340850868451063,
+          1.0454679299214362,
+          1.067215767646697,
+          0.7035601810912585,
+          1.2870367873441926
+        ],
+        "history_trend": 0.1924531440478623,
+        "zero_activity_probability": 0.14409983571712892
+      },
+      {
+        "store_id": "1000000023",
+        "category_id": "7",
+        "relative_activity": 1.1573844244330065,
+        "weekday_weights": [
+          1.056413679579529,
+          0.9270222012239278,
+          1.1457689725314277,
+          1.0458798778351226,
+          1.178295407812497,
+          1.43979525884635,
+          0.8378182907756886
+        ],
+        "history_trend": -0.17194815543956177,
+        "zero_activity_probability": 0.12382497421458194
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "1",
+        "relative_activity": 0.6980443648078427,
+        "weekday_weights": [
+          1.1469411140722434,
+          0.8322866862056586,
+          0.8258591867608917,
+          0.8131329883571925,
+          1.142342992627868,
+          1.3294426265066308,
+          0.8929967524809611
+        ],
+        "history_trend": -0.004528114038270692,
+        "zero_activity_probability": 0.1011613095786791
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "2",
+        "relative_activity": 1.1075850276916595,
+        "weekday_weights": [
+          0.832329114310149,
+          0.9718078422069664,
+          1.1972570812977927,
+          0.8970924037975665,
+          1.1846819747464419,
+          1.0235967733534408,
+          1.2395813953385673
+        ],
+        "history_trend": 0.020906236567421965,
+        "zero_activity_probability": 0.09112241429006215
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "3",
+        "relative_activity": 0.9047660473161483,
+        "weekday_weights": [
+          0.918875351357464,
+          1.1876563106316333,
+          1.1518514441125713,
+          0.8395705528438768,
+          0.8319138810306672,
+          0.8770520945760807,
+          1.14924901100949
+        ],
+        "history_trend": -0.0975995914028363,
+        "zero_activity_probability": 0.08595327077724114
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "4",
+        "relative_activity": 1.3884777500251153,
+        "weekday_weights": [
+          1.065293114001707,
+          0.8260206999802074,
+          0.9699393725146954,
+          1.1596195651642056,
+          1.048002324584691,
+          1.4386355496628178,
+          1.0188079944412969
+        ],
+        "history_trend": -0.05368635284760909,
+        "zero_activity_probability": 0.17349845210750964
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "5",
+        "relative_activity": 1.4101451854156508,
+        "weekday_weights": [
+          0.9767633016580777,
+          1.0315168238939874,
+          0.8441495317329801,
+          1.0036096076357472,
+          0.8149510658579773,
+          1.173844686637802,
+          1.4961333211539518
+        ],
+        "history_trend": -0.12177829714849775,
+        "zero_activity_probability": 0.1246192022391805
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "6",
+        "relative_activity": 0.8169199482383634,
+        "weekday_weights": [
+          1.086614708907974,
+          0.879521883734873,
+          0.9615973738858776,
+          0.9057458975497802,
+          1.1749562498062747,
+          0.8846993489765227,
+          1.0255027529273795
+        ],
+        "history_trend": 0.020460551655289816,
+        "zero_activity_probability": 0.15251806056325268
+      },
+      {
+        "store_id": "1000000024",
+        "category_id": "7",
+        "relative_activity": 1.2654812851907753,
+        "weekday_weights": [
+          0.9799620644857875,
+          0.9458936752596337,
+          1.0487776397287163,
+          0.911037410134958,
+          1.028524160109398,
+          1.135781504643277,
+          0.961559106522157
+        ],
+        "history_trend": -0.12391543006390243,
+        "zero_activity_probability": 0.09914350423392997
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "1",
+        "relative_activity": 0.9469626022436476,
+        "weekday_weights": [
+          1.1002691071130757,
+          1.1432826140706562,
+          0.8464756263974933,
+          1.0252408716540191,
+          1.1219598403119182,
+          1.0487694459588035,
+          0.9013750625227485
+        ],
+        "history_trend": 0.17848926389945824,
+        "zero_activity_probability": 0.14540424396206664
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "2",
+        "relative_activity": 1.5900996791936004,
+        "weekday_weights": [
+          1.1191456263591653,
+          1.1418791240412471,
+          0.9235630943950259,
+          1.1173602393668234,
+          0.8341190595100137,
+          1.1787039953014355,
+          0.9247903105628174
+        ],
+        "history_trend": -0.12050757096960935,
+        "zero_activity_probability": 0.10613225874524973
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "3",
+        "relative_activity": 1.24080115592036,
+        "weekday_weights": [
+          1.04817610618797,
+          0.9177720474649677,
+          0.8932439935687156,
+          1.1136693681763241,
+          0.982033519555785,
+          0.7855646379292103,
+          0.9260532862073326
+        ],
+        "history_trend": 0.1943006558528837,
+        "zero_activity_probability": 0.11330166984049796
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "4",
+        "relative_activity": 1.3227187746965914,
+        "weekday_weights": [
+          0.9666249903434149,
+          0.9135023649129286,
+          1.1722687956710915,
+          0.9487764501084242,
+          1.1400254010797677,
+          1.2814637050298265,
+          1.3438247598717163
+        ],
+        "history_trend": 0.18533236820531485,
+        "zero_activity_probability": 0.08505424668073604
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "5",
+        "relative_activity": 1.5522683245895519,
+        "weekday_weights": [
+          1.1985946522350273,
+          0.8657214792687495,
+          0.8387969457000498,
+          1.0617458399117154,
+          0.8197402130561957,
+          0.7555906183700598,
+          1.308279346654789
+        ],
+        "history_trend": 0.07939001486524627,
+        "zero_activity_probability": 0.15754543449988384
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "6",
+        "relative_activity": 1.1479546630549307,
+        "weekday_weights": [
+          1.0270272589433531,
+          1.0994902438447434,
+          1.1862012519743512,
+          0.9416528127847177,
+          1.1283550115505647,
+          1.0407108164739867,
+          1.4229693271970125
+        ],
+        "history_trend": -0.1400915573946918,
+        "zero_activity_probability": 0.16225327792104538
+      },
+      {
+        "store_id": "1000000025",
+        "category_id": "7",
+        "relative_activity": 0.7045764553536275,
+        "weekday_weights": [
+          1.0738441576548383,
+          1.1011734544307896,
+          1.0543926690105412,
+          1.0080071631883072,
+          1.179039480431004,
+          1.0729969513601965,
+          1.488398945959994
+        ],
+        "history_trend": 0.08201770758568439,
+        "zero_activity_probability": 0.08994047094821762
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "1",
+        "relative_activity": 1.5479164531530123,
+        "weekday_weights": [
+          1.193609819451687,
+          0.8091632930687982,
+          0.8348379282012548,
+          0.9033206430914151,
+          0.8085202015773184,
+          1.34861161870329,
+          1.4484296349894783
+        ],
+        "history_trend": 0.12484011476407214,
+        "zero_activity_probability": 0.16558270512211923
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "2",
+        "relative_activity": 1.345543075650073,
+        "weekday_weights": [
+          0.804739013008751,
+          0.9975659183850407,
+          1.0877453278235258,
+          0.9252288145122342,
+          1.0644296139644334,
+          1.0966519626418525,
+          1.092292762844388
+        ],
+        "history_trend": 0.14645258837456027,
+        "zero_activity_probability": 0.11387676531319452
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "3",
+        "relative_activity": 1.400098612530123,
+        "weekday_weights": [
+          0.9123694766348701,
+          1.062253131392867,
+          0.8299520020038667,
+          1.1941342095084484,
+          0.8442254313794316,
+          0.925208315401757,
+          0.8760854092589657
+        ],
+        "history_trend": -0.17289350965319888,
+        "zero_activity_probability": 0.1791172001811114
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "4",
+        "relative_activity": 0.9244355563137039,
+        "weekday_weights": [
+          0.8519438715637119,
+          0.9952283834140375,
+          0.9052364216239985,
+          0.8679615772372042,
+          0.8421176094334063,
+          0.8072202057807395,
+          0.8340936574373923
+        ],
+        "history_trend": 0.13344450960711257,
+        "zero_activity_probability": 0.1364379056302153
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "5",
+        "relative_activity": 1.4874981177879238,
+        "weekday_weights": [
+          1.1724472550356275,
+          0.8833897484925342,
+          0.9116922843701343,
+          1.1626287549021814,
+          1.1117948909433273,
+          1.0109831866677121,
+          1.2359872542283437
+        ],
+        "history_trend": 0.2589270497555387,
+        "zero_activity_probability": 0.16935599535364157
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "6",
+        "relative_activity": 1.3862440085561534,
+        "weekday_weights": [
+          0.9830375743051158,
+          0.915542424495654,
+          1.0101633714070979,
+          1.1581294062445358,
+          0.9417906793430559,
+          0.9387072981884984,
+          1.2985447185978756
+        ],
+        "history_trend": 0.2847280428361396,
+        "zero_activity_probability": 0.13590326126445842
+      },
+      {
+        "store_id": "1000000026",
+        "category_id": "7",
+        "relative_activity": 1.1002856339967972,
+        "weekday_weights": [
+          0.8160559917964985,
+          1.0415238678956547,
+          0.8692218561876894,
+          1.0162313423652705,
+          0.9429975820732907,
+          0.9224962462215454,
+          1.2016472483124931
+        ],
+        "history_trend": -0.13586482107707337,
+        "zero_activity_probability": 0.12479513419956419
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "1",
+        "relative_activity": 1.495544068902049,
+        "weekday_weights": [
+          0.8056438672068282,
+          1.1714972323644193,
+          0.9186052449966676,
+          0.9955912611301893,
+          0.9926871285657555,
+          0.7321049893184902,
+          0.843881516258825
+        ],
+        "history_trend": 0.02533897528152662,
+        "zero_activity_probability": 0.08748628095521796
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "2",
+        "relative_activity": 1.3679859606067046,
+        "weekday_weights": [
+          0.9863689163209769,
+          0.8881297331240188,
+          0.9695228371759717,
+          0.8816898328727477,
+          0.8330573560673287,
+          1.00756647673161,
+          0.8487988006840292
+        ],
+        "history_trend": 0.18853700240779164,
+        "zero_activity_probability": 0.12385561223212502
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "3",
+        "relative_activity": 0.9472802958277557,
+        "weekday_weights": [
+          0.9650935233253757,
+          1.0762952391364073,
+          0.8999397947920048,
+          0.9106835770654518,
+          1.1467417734500993,
+          0.7374972958762069,
+          1.1428437268120257
+        ],
+        "history_trend": 0.15061353215752105,
+        "zero_activity_probability": 0.14183739510367602
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "4",
+        "relative_activity": 1.338288040048536,
+        "weekday_weights": [
+          1.1649719873248565,
+          1.0104936360507875,
+          1.139054686843389,
+          1.1173703764795182,
+          0.9616513299126149,
+          0.9325094123189536,
+          0.755030028232405
+        ],
+        "history_trend": -0.08893467374403025,
+        "zero_activity_probability": 0.10886484187036934
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "5",
+        "relative_activity": 0.6794778700790131,
+        "weekday_weights": [
+          0.9447308225542422,
+          1.0341860860354917,
+          0.9942298139645305,
+          0.9264292482618842,
+          0.9743208466112767,
+          1.0726245350157844,
+          1.3703926813348546
+        ],
+        "history_trend": -0.11870061306950158,
+        "zero_activity_probability": 0.11400947296329145
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "6",
+        "relative_activity": 0.7884198886896163,
+        "weekday_weights": [
+          1.1475751418104267,
+          1.0637094084417618,
+          0.8933043055735276,
+          1.1972259016123634,
+          0.8042217166803184,
+          1.1142771363749295,
+          1.2077268611703507
+        ],
+        "history_trend": -0.059167847179682376,
+        "zero_activity_probability": 0.14650741644628595
+      },
+      {
+        "store_id": "1000000027",
+        "category_id": "7",
+        "relative_activity": 1.4873070108912743,
+        "weekday_weights": [
+          0.850796334113833,
+          0.8493918760584085,
+          1.1349538657382219,
+          0.9216101621261933,
+          0.9152806677449977,
+          1.3781042927059448,
+          1.0959921196456368
+        ],
+        "history_trend": -0.02551660456697047,
+        "zero_activity_probability": 0.12950935150216786
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "1",
+        "relative_activity": 1.3488486338248256,
+        "weekday_weights": [
+          1.1724245683006647,
+          1.1951791806944585,
+          1.0273937101465125,
+          1.0969282773595768,
+          1.1659112052545262,
+          1.3684600565850862,
+          1.219023113676971
+        ],
+        "history_trend": 0.06844507439166808,
+        "zero_activity_probability": 0.1352095592260906
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "2",
+        "relative_activity": 0.9728654882223624,
+        "weekday_weights": [
+          0.8078984940103918,
+          1.1317103525667478,
+          1.1228871264340818,
+          1.0819376536623648,
+          1.0596045718898401,
+          0.9743149363684463,
+          1.4956536135081306
+        ],
+        "history_trend": 0.2066264232735993,
+        "zero_activity_probability": 0.15389907357187682
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "3",
+        "relative_activity": 1.4173002546328533,
+        "weekday_weights": [
+          1.1574937572810367,
+          0.8798753045349641,
+          1.1951049628102832,
+          0.8105529842106626,
+          1.1802877276025625,
+          0.7213290423515883,
+          0.966256230542231
+        ],
+        "history_trend": 0.22154123838885575,
+        "zero_activity_probability": 0.11605318218066475
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "4",
+        "relative_activity": 0.8244988401282185,
+        "weekday_weights": [
+          1.0226546685951392,
+          1.0888112330457214,
+          0.9402010112293759,
+          0.8031830527051071,
+          0.9428664655330303,
+          0.8660802265953395,
+          1.0812107725942617
+        ],
+        "history_trend": -0.1719303391255479,
+        "zero_activity_probability": 0.12554447219321638
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "5",
+        "relative_activity": 1.4306950524813158,
+        "weekday_weights": [
+          1.0724540496017583,
+          1.1572209275380743,
+          1.0893239951963682,
+          1.1869472902540803,
+          0.9737947857237456,
+          0.8685858191072713,
+          1.4184815517687066
+        ],
+        "history_trend": -0.10811925574615483,
+        "zero_activity_probability": 0.13797751183636991
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "6",
+        "relative_activity": 1.0829118921437575,
+        "weekday_weights": [
+          0.9584770528192632,
+          0.907902076910243,
+          0.9975842605720278,
+          1.035550292342309,
+          1.166178862940819,
+          1.2805516564396568,
+          1.0629278066510874
+        ],
+        "history_trend": 0.2684578105746407,
+        "zero_activity_probability": 0.1797188130154698
+      },
+      {
+        "store_id": "1000000028",
+        "category_id": "7",
+        "relative_activity": 1.2406633488290129,
+        "weekday_weights": [
+          0.9115809522963797,
+          1.0244655377978544,
+          0.9280501557387284,
+          0.8094949462075114,
+          1.0730853593550798,
+          1.3653626860819952,
+          1.247455996739304
+        ],
+        "history_trend": 0.03754161598973854,
+        "zero_activity_probability": 0.13552557972717164
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "1",
+        "relative_activity": 1.3238818681806492,
+        "weekday_weights": [
+          1.113153912485296,
+          0.8368388638602128,
+          0.9661312296696211,
+          0.9293945925507884,
+          0.8252108603133926,
+          1.015071002850443,
+          1.3921863476866232
+        ],
+        "history_trend": 0.16022441081234262,
+        "zero_activity_probability": 0.1353272469329139
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "2",
+        "relative_activity": 1.5864005164603632,
+        "weekday_weights": [
+          1.0133750853076857,
+          1.0610552126491792,
+          0.8310359793787624,
+          1.1700509914774866,
+          0.8826516362449919,
+          1.479567184424646,
+          1.286784637690682
+        ],
+        "history_trend": 0.24161018369776172,
+        "zero_activity_probability": 0.11177770347249219
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "3",
+        "relative_activity": 1.1718138610385056,
+        "weekday_weights": [
+          0.9941330195335618,
+          0.9334428799626006,
+          1.0110160095119232,
+          1.0578019623821042,
+          1.0712490286920289,
+          1.3804026494773365,
+          0.8778694513211973
+        ],
+        "history_trend": -0.06687833719368025,
+        "zero_activity_probability": 0.09989494320148082
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "4",
+        "relative_activity": 0.808924680602598,
+        "weekday_weights": [
+          0.9589465810614083,
+          1.0175364149911508,
+          0.8028979470825128,
+          1.1287859749291183,
+          1.0183215118345683,
+          1.1827306474455697,
+          0.8614058941047941
+        ],
+        "history_trend": -0.16701796207430464,
+        "zero_activity_probability": 0.1564901607080207
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "5",
+        "relative_activity": 1.3755060575533133,
+        "weekday_weights": [
+          1.0691169550288846,
+          1.1514413110253876,
+          1.0688374685163424,
+          1.1885642932774685,
+          1.1667961351320548,
+          1.4366021388470245,
+          1.294376089682175
+        ],
+        "history_trend": 0.11951615516104425,
+        "zero_activity_probability": 0.17204153096475178
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "6",
+        "relative_activity": 1.4654199570161315,
+        "weekday_weights": [
+          0.933261733419587,
+          0.8516674487559253,
+          0.8560433209852655,
+          1.167677747736542,
+          0.8673903461430219,
+          1.394523587172113,
+          1.1826102585760907
+        ],
+        "history_trend": 0.05124218025058752,
+        "zero_activity_probability": 0.17637276871708166
+      },
+      {
+        "store_id": "1000000029",
+        "category_id": "7",
+        "relative_activity": 0.8219557913117064,
+        "weekday_weights": [
+          0.9774889179690691,
+          1.1613574658551313,
+          0.9264044714124441,
+          0.817870899548137,
+          1.0306629900469266,
+          0.8072892651536132,
+          1.18899908874235
+        ],
+        "history_trend": -0.05209864820176341,
+        "zero_activity_probability": 0.12768242504050872
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "1",
+        "relative_activity": 0.9986480594036575,
+        "weekday_weights": [
+          1.0860705577904564,
+          0.8999729974488568,
+          1.0400918399324426,
+          1.0266518723081406,
+          0.9039279020151156,
+          1.4457642024405823,
+          1.140484926099353
+        ],
+        "history_trend": 0.188223436929344,
+        "zero_activity_probability": 0.17297404485213838
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "2",
+        "relative_activity": 1.1753167115181378,
+        "weekday_weights": [
+          1.1482672157418898,
+          1.0981548127410623,
+          1.1616708780379956,
+          1.1669432557823258,
+          1.1672512308660254,
+          1.078028350938057,
+          1.1033150596753498
+        ],
+        "history_trend": -0.06854060552905772,
+        "zero_activity_probability": 0.13466286812440895
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "3",
+        "relative_activity": 1.2466501041074844,
+        "weekday_weights": [
+          0.9713704845648992,
+          0.824760335818469,
+          0.9913390048159955,
+          0.8498204784912918,
+          1.04905541612494,
+          1.3481822640181726,
+          1.426881563596722
+        ],
+        "history_trend": -0.12910489064158687,
+        "zero_activity_probability": 0.16486769675288196
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "4",
+        "relative_activity": 1.446104613568877,
+        "weekday_weights": [
+          0.8379577704107848,
+          0.9783443086474997,
+          1.0793773211001443,
+          0.8029722623927373,
+          0.961078957709785,
+          1.4120044177724929,
+          1.4939280801857877
+        ],
+        "history_trend": -0.0831489995292618,
+        "zero_activity_probability": 0.15426844258825617
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "5",
+        "relative_activity": 0.6768642886283781,
+        "weekday_weights": [
+          1.0282151170389302,
+          1.0743729385254595,
+          1.083769082069957,
+          0.8047786414589039,
+          0.8169594725200022,
+          1.4555542514106623,
+          1.191327447647399
+        ],
+        "history_trend": 0.05399298748971282,
+        "zero_activity_probability": 0.140915511177211
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "6",
+        "relative_activity": 1.4938014787349547,
+        "weekday_weights": [
+          1.0367145582065405,
+          0.896983276183235,
+          0.8316877751266003,
+          1.148644759663583,
+          1.0477984167283971,
+          0.7199290888656191,
+          1.120544031054923
+        ],
+        "history_trend": -0.1003930178647271,
+        "zero_activity_probability": 0.08651656631682449
+      },
+      {
+        "store_id": "1000000030",
+        "category_id": "7",
+        "relative_activity": 1.393406658650333,
+        "weekday_weights": [
+          1.1415164000256144,
+          1.104411138016304,
+          1.1768801629363577,
+          1.124580828233377,
+          0.8250369318367416,
+          1.3312057268707984,
+          1.4398496507349252
+        ],
+        "history_trend": 0.14175874397978316,
+        "zero_activity_probability": 0.12144435528546942
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "1",
+        "relative_activity": 1.5046197496705713,
+        "weekday_weights": [
+          1.1383939768356688,
+          1.0377892945121323,
+          0.9123681431769451,
+          1.0612863812010271,
+          0.9190305953094502,
+          1.2710500136802878,
+          1.1891321779475121
+        ],
+        "history_trend": 0.23060950126036212,
+        "zero_activity_probability": 0.17387467092144193
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "2",
+        "relative_activity": 1.3613008698607247,
+        "weekday_weights": [
+          0.8217633360492509,
+          1.036112237673228,
+          0.8103522973091133,
+          0.943249637732984,
+          1.019814977856967,
+          0.7845363141003276,
+          0.8317793992058001
+        ],
+        "history_trend": 0.2814831917687326,
+        "zero_activity_probability": 0.11791054199602723
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "3",
+        "relative_activity": 1.066508674241286,
+        "weekday_weights": [
+          1.0784105175008545,
+          1.132449162309086,
+          1.1573350096584665,
+          1.1480375397990192,
+          0.8105811435808994,
+          0.9740649251977387,
+          0.9832770771375476
+        ],
+        "history_trend": -0.16039405912715898,
+        "zero_activity_probability": 0.10371198696787798
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "4",
+        "relative_activity": 0.8951722039185683,
+        "weekday_weights": [
+          1.0493325712125103,
+          0.8774688941777374,
+          1.1962795149800338,
+          1.0488416672467924,
+          1.150094436779039,
+          1.2651012791843297,
+          1.3796296392263168
+        ],
+        "history_trend": -0.11887083494760353,
+        "zero_activity_probability": 0.17388077886607847
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "5",
+        "relative_activity": 0.7194810494805779,
+        "weekday_weights": [
+          1.109772505834383,
+          1.1406176912453538,
+          1.069833224487528,
+          1.193374236926528,
+          0.9321219801221773,
+          1.4718178907724333,
+          1.1078220620100019
+        ],
+        "history_trend": 0.2366680450709751,
+        "zero_activity_probability": 0.08317227350331986
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "6",
+        "relative_activity": 1.1021242439386543,
+        "weekday_weights": [
+          0.886337415416137,
+          0.9721025390595097,
+          0.8927024120709469,
+          0.9506932956090428,
+          0.9429386647874644,
+          0.8355937184477057,
+          0.9233300000975599
+        ],
+        "history_trend": 0.19784506809788488,
+        "zero_activity_probability": 0.08536838635460471
+      },
+      {
+        "store_id": "1000000031",
+        "category_id": "7",
+        "relative_activity": 0.8813281632453606,
+        "weekday_weights": [
+          0.9103245499557392,
+          0.9659647834373446,
+          1.080761441124821,
+          1.1754061440701606,
+          1.1561485309734614,
+          0.8198999408631154,
+          0.7857394626738695
+        ],
+        "history_trend": 0.2833436992138214,
+        "zero_activity_probability": 0.14464912813039155
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "1",
+        "relative_activity": 0.8568682582838325,
+        "weekday_weights": [
+          1.004122536066468,
+          1.1821171362689313,
+          1.1046308159142302,
+          0.8251798783841424,
+          1.1592512999684297,
+          1.3349784232445945,
+          1.1445143175264691
+        ],
+        "history_trend": -0.15588939829839854,
+        "zero_activity_probability": 0.09570697214576906
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "2",
+        "relative_activity": 0.8358742436209877,
+        "weekday_weights": [
+          1.1948476540449675,
+          0.9985370210006662,
+          0.9394922365472365,
+          1.190555249001233,
+          1.029966723214141,
+          0.8586441284112057,
+          1.475094553372617
+        ],
+        "history_trend": 0.15368209512988312,
+        "zero_activity_probability": 0.11644200521911734
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "3",
+        "relative_activity": 0.6667037248914681,
+        "weekday_weights": [
+          0.8327115914451794,
+          1.1065471059496361,
+          0.854046449631905,
+          0.8979046494103115,
+          0.8275917722989454,
+          1.0441374753564272,
+          1.0714989383570024
+        ],
+        "history_trend": 0.1920272438915943,
+        "zero_activity_probability": 0.17254570516083895
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "4",
+        "relative_activity": 1.0461641178008318,
+        "weekday_weights": [
+          0.9126078988147036,
+          0.8873998087288436,
+          1.0111062375933748,
+          1.0571153514951865,
+          1.079245625524894,
+          0.7788885480880444,
+          0.8905641153529832
+        ],
+        "history_trend": -0.1710734925058448,
+        "zero_activity_probability": 0.11264642060524205
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "5",
+        "relative_activity": 0.7030697282237461,
+        "weekday_weights": [
+          0.9903967807049592,
+          1.085556689382818,
+          1.0347604300144515,
+          0.828368701151524,
+          0.8528523657326228,
+          1.040357549928316,
+          0.9285226881173655
+        ],
+        "history_trend": -0.07533294659162548,
+        "zero_activity_probability": 0.1248142989534882
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "6",
+        "relative_activity": 0.8695700023875679,
+        "weekday_weights": [
+          1.1198966988821226,
+          1.0457305394072778,
+          0.8695269683337403,
+          0.9115899450627225,
+          0.9337020603471324,
+          1.4450678392529186,
+          1.0659540967829688
+        ],
+        "history_trend": 0.09313932421133608,
+        "zero_activity_probability": 0.1184298660415248
+      },
+      {
+        "store_id": "1000000032",
+        "category_id": "7",
+        "relative_activity": 0.7563861828766467,
+        "weekday_weights": [
+          1.0791466355555739,
+          1.117373991028184,
+          1.1793015118851726,
+          0.9764443020368474,
+          0.865569652062431,
+          1.0521873055962074,
+          1.4507655341671213
+        ],
+        "history_trend": -0.012115675594395137,
+        "zero_activity_probability": 0.08045489887146284
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "1",
+        "relative_activity": 1.3273141737900576,
+        "weekday_weights": [
+          1.073854359300895,
+          0.8471481152620342,
+          0.8425633931243471,
+          1.1745069454455788,
+          1.0077204976789247,
+          1.1616868469118264,
+          1.1822912744819827
+        ],
+        "history_trend": -0.16134620316680193,
+        "zero_activity_probability": 0.10583766929320466
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "2",
+        "relative_activity": 1.0243457385094463,
+        "weekday_weights": [
+          0.9702610231820104,
+          0.952603660434262,
+          0.8347210334960329,
+          0.8520701590662213,
+          0.8146659923472442,
+          1.3521015249893225,
+          1.350083492036392
+        ],
+        "history_trend": -0.159606946118518,
+        "zero_activity_probability": 0.1384149064380547
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "3",
+        "relative_activity": 1.2297100874510178,
+        "weekday_weights": [
+          0.8480365781071951,
+          1.053589905717553,
+          0.9770678609432027,
+          1.0149183700431477,
+          1.0721242450284916,
+          1.1680421981177742,
+          1.122484519483506
+        ],
+        "history_trend": -0.027942923296272237,
+        "zero_activity_probability": 0.0925375265539472
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "4",
+        "relative_activity": 0.721176960816326,
+        "weekday_weights": [
+          0.8029261305760218,
+          0.8664395676580562,
+          1.1520614252684096,
+          1.1219206525741263,
+          0.8506144264286074,
+          0.7115175554434758,
+          0.9242513938134155
+        ],
+        "history_trend": -0.1319942134957447,
+        "zero_activity_probability": 0.11653834987750164
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "5",
+        "relative_activity": 1.269564864609276,
+        "weekday_weights": [
+          1.136005636419935,
+          1.1101874147439852,
+          0.8793137617437528,
+          1.1104201483580154,
+          0.8528623302747014,
+          1.4644520708505482,
+          1.3947650723300158
+        ],
+        "history_trend": -0.013468315277694265,
+        "zero_activity_probability": 0.1328189914894211
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "6",
+        "relative_activity": 1.2757084384173374,
+        "weekday_weights": [
+          0.8593835130382625,
+          1.1327553532535766,
+          0.8934516956654694,
+          0.9481567773499386,
+          1.1165172809272748,
+          1.2980668811688294,
+          0.7604181891145708
+        ],
+        "history_trend": -0.12253278465456818,
+        "zero_activity_probability": 0.16821290449493234
+      },
+      {
+        "store_id": "1000000033",
+        "category_id": "7",
+        "relative_activity": 1.1137961216251506,
+        "weekday_weights": [
+          1.16252323486375,
+          0.9862730935328529,
+          1.1729895669895318,
+          1.1775460608262556,
+          1.0682020015031843,
+          1.2302470839433375,
+          0.7348335344702642
+        ],
+        "history_trend": 0.2180742489987353,
+        "zero_activity_probability": 0.08286559642515771
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "1",
+        "relative_activity": 1.3796342706377684,
+        "weekday_weights": [
+          1.159209994316579,
+          1.0923581245418312,
+          0.8922283373838877,
+          0.9129771551594544,
+          0.9830457473351822,
+          1.03449195532135,
+          1.0093962742808844
+        ],
+        "history_trend": -0.09796757978239556,
+        "zero_activity_probability": 0.1324038055518583
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "2",
+        "relative_activity": 1.1459748296362728,
+        "weekday_weights": [
+          1.0918630879462836,
+          1.1746172740498149,
+          1.126462973211869,
+          1.0554774214461191,
+          0.8958580084193198,
+          1.4216048840958628,
+          1.2213888661582795
+        ],
+        "history_trend": -0.012534847525385251,
+        "zero_activity_probability": 0.11762634021558424
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "3",
+        "relative_activity": 1.5243487062748065,
+        "weekday_weights": [
+          1.009658010322564,
+          1.1488079177287092,
+          0.8002090266726285,
+          0.9534469930265297,
+          1.109660719953782,
+          0.9491221067692206,
+          0.9569469558376886
+        ],
+        "history_trend": 0.019938641839184368,
+        "zero_activity_probability": 0.15851454073556254
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "4",
+        "relative_activity": 0.7814953550625595,
+        "weekday_weights": [
+          0.9732739574946103,
+          0.9294835119664104,
+          0.8414171838424549,
+          0.886810524710158,
+          0.8223786322104508,
+          1.0067145049627846,
+          1.3323144747456488
+        ],
+        "history_trend": 0.04712836135715043,
+        "zero_activity_probability": 0.08084624778965552
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "5",
+        "relative_activity": 1.2268964967439768,
+        "weekday_weights": [
+          1.0240848287848612,
+          0.9317219683633948,
+          1.010152247698543,
+          0.9819154306179927,
+          0.8185756295133866,
+          1.2990245387635744,
+          0.811979810715924
+        ],
+        "history_trend": -0.12563963146539298,
+        "zero_activity_probability": 0.10033023016175802
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "6",
+        "relative_activity": 1.2218041214769384,
+        "weekday_weights": [
+          0.8744872202076495,
+          0.8529427734075143,
+          1.163928931622955,
+          1.1799596917058301,
+          0.8014505525174992,
+          1.1825916443783926,
+          1.2881131432341912
+        ],
+        "history_trend": -0.04744496615007893,
+        "zero_activity_probability": 0.1179014879297739
+      },
+      {
+        "store_id": "1000000034",
+        "category_id": "7",
+        "relative_activity": 1.0461707516438234,
+        "weekday_weights": [
+          1.0616364247789694,
+          1.0015236185220993,
+          1.0718301243487014,
+          0.8192315449876539,
+          0.9286468906682956,
+          0.7172073264634711,
+          0.9552806168170211
+        ],
+        "history_trend": -0.15146852468877908,
+        "zero_activity_probability": 0.1732931032702045
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "1",
+        "relative_activity": 1.2573372905363165,
+        "weekday_weights": [
+          1.1244758668776498,
+          1.1681010307517057,
+          0.977583980333906,
+          0.9916817755773603,
+          1.0731597343927601,
+          0.7307390240872015,
+          0.848442353977964
+        ],
+        "history_trend": 0.07691955671742728,
+        "zero_activity_probability": 0.1261633478509092
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "2",
+        "relative_activity": 0.7979376454770535,
+        "weekday_weights": [
+          1.0207766359785566,
+          1.184575019247598,
+          1.0989132349523083,
+          1.0022140734619367,
+          1.180326078620673,
+          1.3404337062803773,
+          1.1747641048146433
+        ],
+        "history_trend": 0.056412104490461024,
+        "zero_activity_probability": 0.12638000511188419
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "3",
+        "relative_activity": 1.3797860431297955,
+        "weekday_weights": [
+          0.8315701063368897,
+          1.0730956807841312,
+          1.1487681422069616,
+          0.9159690796528371,
+          0.9250301463650001,
+          1.1536420348511627,
+          0.844046745963181
+        ],
+        "history_trend": 0.03146477313980489,
+        "zero_activity_probability": 0.10406731291010247
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "4",
+        "relative_activity": 0.8469446730053163,
+        "weekday_weights": [
+          1.0612960353432417,
+          1.039216832623596,
+          1.182728520123951,
+          1.19539712385998,
+          1.0450835336545519,
+          0.8736989777065097,
+          0.7793460114976973
+        ],
+        "history_trend": -0.19843747153471913,
+        "zero_activity_probability": 0.1527895325959733
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "5",
+        "relative_activity": 0.9115288717139717,
+        "weekday_weights": [
+          0.9097722288741323,
+          0.9814175873851886,
+          1.0316409933953494,
+          0.9403072935448445,
+          0.9366158260260636,
+          1.1888124326694607,
+          1.4776273095438617
+        ],
+        "history_trend": 0.05520241422871902,
+        "zero_activity_probability": 0.09891644986590235
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "6",
+        "relative_activity": 1.1372722776430932,
+        "weekday_weights": [
+          0.9127496996468624,
+          1.0189595433543273,
+          1.191024625274139,
+          0.8602140826288606,
+          0.9733245000114432,
+          1.0917927997248225,
+          1.0411647575001202
+        ],
+        "history_trend": -0.04904727289420818,
+        "zero_activity_probability": 0.11316593181537754
+      },
+      {
+        "store_id": "1000000035",
+        "category_id": "7",
+        "relative_activity": 1.0114098000689815,
+        "weekday_weights": [
+          1.0645698136823971,
+          1.072942592440943,
+          0.8267053663405972,
+          1.1994743574194833,
+          1.0739465954881995,
+          1.0787114453071727,
+          1.0591507423948712
+        ],
+        "history_trend": 0.11937350466922447,
+        "zero_activity_probability": 0.08851545525722863
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "1",
+        "relative_activity": 1.3312552441824415,
+        "weekday_weights": [
+          1.079740999584988,
+          1.1899899605382591,
+          0.8073713255966731,
+          1.1074762718628213,
+          1.1331400787754478,
+          1.0254315184448883,
+          1.4416920446218993
+        ],
+        "history_trend": 0.15304244690156932,
+        "zero_activity_probability": 0.09415317345942215
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "2",
+        "relative_activity": 1.5651241827568363,
+        "weekday_weights": [
+          0.9197391019053853,
+          1.0365857501357154,
+          1.1519654343293995,
+          1.1743263869528868,
+          0.960703860183567,
+          1.4284111481049262,
+          1.454543804710729
+        ],
+        "history_trend": 0.04642900422743629,
+        "zero_activity_probability": 0.10396750086954858
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "3",
+        "relative_activity": 1.2304845753381257,
+        "weekday_weights": [
+          0.9914405436647226,
+          0.9031496485811866,
+          0.8784067405268152,
+          0.929067022526032,
+          1.0638204172833614,
+          1.4773468761807456,
+          1.3162462632629321
+        ],
+        "history_trend": -0.1016545717069639,
+        "zero_activity_probability": 0.11086987202629792
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "4",
+        "relative_activity": 0.8781160200739329,
+        "weekday_weights": [
+          1.0700004537767263,
+          0.9265424035578858,
+          0.9997705792664254,
+          1.0664834847402584,
+          0.9897508712805267,
+          0.8965835872385712,
+          0.8030795409696165
+        ],
+        "history_trend": 0.2230397141285282,
+        "zero_activity_probability": 0.1371720595543169
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "5",
+        "relative_activity": 1.1511395246356693,
+        "weekday_weights": [
+          0.9440759392489865,
+          0.932392627634991,
+          1.0750835717669138,
+          0.8968522656802074,
+          0.9681415648078052,
+          0.7466617456982082,
+          0.7054495805181275
+        ],
+        "history_trend": 0.21236421981343517,
+        "zero_activity_probability": 0.10943804579756071
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "6",
+        "relative_activity": 1.054325104365954,
+        "weekday_weights": [
+          0.8489391998332828,
+          0.914691594213815,
+          0.8059538095972186,
+          1.040515460288763,
+          1.1240784936429822,
+          1.2200074641154668,
+          1.3024550382587714
+        ],
+        "history_trend": 0.26168153182555093,
+        "zero_activity_probability": 0.1591043517567055
+      },
+      {
+        "store_id": "1000000036",
+        "category_id": "7",
+        "relative_activity": 1.5673917754072786,
+        "weekday_weights": [
+          0.9643861938445766,
+          0.9837098562321464,
+          1.1574736242545707,
+          1.1598005781116536,
+          1.0353257117604224,
+          1.1049768952021939,
+          0.7017231183099284
+        ],
+        "history_trend": 0.07756319588181765,
+        "zero_activity_probability": 0.09148936419513025
+      }
+    ],
+    "conflict_item_ids": [
+      "messy40:2026-10-30:1000000000:1:1:line:1",
+      "messy40:2026-10-17:1000000000:1:5:line:1",
+      "messy40:2026-10-31:1000000000:1:2:line:1",
+      "messy40:2026-11-07:1000000000:1:3:line:1",
+      "messy40:2026-10-19:1000000000:1:4:line:1",
+      "messy40:2026-11-02:1000000000:1:6:line:1",
+      "messy40:2026-10-25:1000000000:1:1:line:1",
+      "messy40:2026-10-16:1000000000:1:6:line:1",
+      "messy40:2026-10-28:1000000000:1:1:line:1",
+      "messy40:2026-10-28:1000000000:1:4:line:1",
+      "messy40:2026-11-08:1000000004:1:3:line:1",
+      "messy40:2026-10-24:1000000004:1:9:line:1",
+      "messy40:2026-10-30:1000000004:1:5:line:1",
+      "messy40:2026-10-14:1000000004:1:2:line:1",
+      "messy40:2026-10-22:1000000004:1:2:line:1",
+      "messy40:2026-10-18:1000000004:1:2:line:1",
+      "messy40:2026-10-15:1000000004:1:2:line:1",
+      "messy40:2026-11-02:1000000004:1:1:line:1",
+      "messy40:2026-10-29:1000000004:1:3:line:1",
+      "messy40:2026-10-25:1000000004:1:1:line:1",
+      "messy40:2026-10-30:1000000008:1:7:line:1",
+      "messy40:2026-10-24:1000000008:1:2:line:1",
+      "messy40:2026-10-14:1000000008:1:1:line:1",
+      "messy40:2026-11-08:1000000008:1:6:line:1",
+      "messy40:2026-10-14:1000000008:1:3:line:1",
+      "messy40:2026-10-13:1000000008:1:7:line:1",
+      "messy40:2026-10-25:1000000008:1:6:line:1",
+      "messy40:2026-10-25:1000000008:1:1:line:1",
+      "messy40:2026-11-07:1000000008:1:8:line:1",
+      "messy40:2026-11-01:1000000008:1:2:line:1",
+      "messy40:2026-10-31:1000000012:1:12:line:1",
+      "messy40:2026-10-24:1000000012:1:8:line:1",
+      "messy40:2026-10-26:1000000012:1:8:line:1",
+      "messy40:2026-10-24:1000000012:1:7:line:1",
+      "messy40:2026-11-05:1000000012:1:3:line:1",
+      "messy40:2026-10-17:1000000012:1:1:line:1",
+      "messy40:2026-10-14:1000000012:1:4:line:1",
+      "messy40:2026-10-15:1000000012:1:2:line:1",
+      "messy40:2026-10-24:1000000012:1:11:line:1",
+      "messy40:2026-11-05:1000000012:1:1:line:1"
+    ],
+    "invalid_quantity_item_ids": [
+      "messy40:2026-10-21:1000000000:1:4:line:1",
+      "messy40:2026-10-17:1000000000:1:6:line:1",
+      "messy40:2026-10-22:1000000000:1:5:line:1",
+      "messy40:2026-10-13:1000000000:1:4:line:1",
+      "messy40:2026-11-05:1000000000:1:8:line:1",
+      "messy40:2026-11-02:1000000000:1:4:line:1",
+      "messy40:2026-10-14:1000000000:1:2:line:1",
+      "messy40:2026-10-27:1000000000:1:1:line:1",
+      "messy40:2026-11-01:1000000000:1:4:line:1",
+      "messy40:2026-10-18:1000000000:1:6:line:1",
+      "messy40:2026-10-26:1000000000:1:9:line:1",
+      "messy40:2026-11-05:1000000000:1:3:line:1",
+      "messy40:2026-10-18:1000000004:1:1:line:1",
+      "messy40:2026-11-07:1000000004:1:3:line:1",
+      "messy40:2026-10-16:1000000004:1:3:line:1",
+      "messy40:2026-10-13:1000000004:1:1:line:1",
+      "messy40:2026-10-24:1000000004:1:8:line:1",
+      "messy40:2026-10-21:1000000004:1:4:line:1",
+      "messy40:2026-11-01:1000000004:1:1:line:1",
+      "messy40:2026-10-15:1000000004:1:1:line:1",
+      "messy40:2026-10-26:1000000004:1:2:line:1",
+      "messy40:2026-10-15:1000000004:1:5:line:1",
+      "messy40:2026-10-21:1000000004:1:5:line:1",
+      "messy40:2026-10-29:1000000004:1:5:line:1",
+      "messy40:2026-10-29:1000000008:1:3:line:1",
+      "messy40:2026-10-16:1000000008:1:3:line:1",
+      "messy40:2026-11-04:1000000008:1:11:line:1",
+      "messy40:2026-10-18:1000000008:1:5:line:1",
+      "messy40:2026-10-16:1000000008:1:6:line:1",
+      "messy40:2026-10-23:1000000008:1:6:line:1",
+      "messy40:2026-10-29:1000000008:1:6:line:1",
+      "messy40:2026-11-06:1000000008:1:6:line:1",
+      "messy40:2026-11-01:1000000008:1:4:line:1",
+      "messy40:2026-10-29:1000000008:1:4:line:1",
+      "messy40:2026-11-07:1000000008:1:4:line:1",
+      "messy40:2026-11-03:1000000008:1:2:line:1",
+      "messy40:2026-10-13:1000000012:1:4:line:1",
+      "messy40:2026-10-25:1000000012:1:1:line:1",
+      "messy40:2026-10-12:1000000012:1:5:line:1",
+      "messy40:2026-10-29:1000000012:1:4:line:1",
+      "messy40:2026-10-26:1000000012:1:3:line:1",
+      "messy40:2026-10-29:1000000012:1:3:line:1",
+      "messy40:2026-10-21:1000000012:1:5:line:1",
+      "messy40:2026-11-08:1000000012:1:1:line:1",
+      "messy40:2026-10-22:1000000012:1:5:line:1",
+      "messy40:2026-11-07:1000000012:1:1:line:1",
+      "messy40:2026-11-08:1000000012:1:2:line:1",
+      "messy40:2026-10-13:1000000012:1:5:line:1"
+    ],
+    "missing_product_item_ids": [
+      "messy40:2026-10-26:1000000000:1:1:line:1",
+      "messy40:2026-10-29:1000000000:1:1:line:1",
+      "messy40:2026-10-31:1000000000:1:4:line:1",
+      "messy40:2026-11-06:1000000000:1:4:line:1",
+      "messy40:2026-10-18:1000000000:1:8:line:1",
+      "messy40:2026-10-27:1000000000:1:4:line:1",
+      "messy40:2026-10-28:1000000004:1:2:line:1",
+      "messy40:2026-10-28:1000000004:1:3:line:1",
+      "messy40:2026-10-12:1000000004:1:2:line:1",
+      "messy40:2026-10-14:1000000004:1:1:line:1",
+      "messy40:2026-11-07:1000000004:1:1:line:1",
+      "messy40:2026-10-17:1000000004:1:4:line:1",
+      "messy40:2026-10-16:1000000008:1:5:line:1",
+      "messy40:2026-10-20:1000000008:1:1:line:1",
+      "messy40:2026-10-13:1000000008:1:4:line:1",
+      "messy40:2026-11-08:1000000008:1:9:line:1",
+      "messy40:2026-10-26:1000000008:1:2:line:1",
+      "messy40:2026-10-12:1000000008:1:4:line:1",
+      "messy40:2026-10-19:1000000012:1:1:line:1",
+      "messy40:2026-10-30:1000000012:1:1:line:1",
+      "messy40:2026-10-30:1000000012:1:4:line:1",
+      "messy40:2026-10-31:1000000012:1:5:line:1",
+      "messy40:2026-10-25:1000000012:1:4:line:1",
+      "messy40:2026-10-17:1000000012:1:2:line:1"
+    ],
+    "unsupported_status_item_ids": [
+      "messy40:2026-11-03:1000000000:1:6:line:1",
+      "messy40:2026-10-16:1000000000:1:1:line:1",
+      "messy40:2026-10-29:1000000000:1:4:line:1",
+      "messy40:2026-11-02:1000000000:1:3:line:1",
+      "messy40:2026-11-04:1000000000:1:3:line:1",
+      "messy40:2026-11-07:1000000000:1:6:line:1",
+      "messy40:2026-11-07:1000000004:1:4:line:1",
+      "messy40:2026-10-17:1000000004:1:3:line:1",
+      "messy40:2026-10-25:1000000004:1:4:line:1",
+      "messy40:2026-11-06:1000000004:1:2:line:1",
+      "messy40:2026-10-12:1000000004:1:4:line:1",
+      "messy40:2026-10-16:1000000004:1:1:line:1",
+      "messy40:2026-11-01:1000000008:1:1:line:1",
+      "messy40:2026-10-18:1000000008:1:4:line:1",
+      "messy40:2026-10-27:1000000008:1:8:line:1",
+      "messy40:2026-11-06:1000000008:1:1:line:1",
+      "messy40:2026-10-27:1000000008:1:1:line:1",
+      "messy40:2026-10-20:1000000008:1:2:line:1",
+      "messy40:2026-10-18:1000000012:1:1:line:1",
+      "messy40:2026-10-13:1000000012:1:6:line:1",
+      "messy40:2026-11-07:1000000012:1:9:line:1",
+      "messy40:2026-11-06:1000000012:1:2:line:1",
+      "messy40:2026-11-04:1000000012:1:1:line:1",
+      "messy40:2026-10-21:1000000012:1:6:line:1"
+    ]
+  },
+  "files": {
+    "area_daily_observations.csv": "ceaacabed050b59615a9edd3d0c61aa6336e782107c4a367b4dae9e7462a38bf",
+    "areas.csv": "719aa3a2ea61135c343c72b1b1c01e463cf5dce65377bf910a7c0d55c9356619",
+    "categories.csv": "04a468c8fcd4a76abd5a7b46ec610bc4bff89cd789d79cf40795892ebefd4411",
+    "coverage.csv": "9eb5803b89814e76b24e2628b9ddf47d7032b3644bbc24e4855d0ecc3459233e",
+    "products.csv": "aea82bb2912e8815eea72d3b9d2896cdbf776e6ed787f7ca64c5fc6549871555",
+    "store_daily_observations.csv": "07ffd2c0b1e3eb229e3f0ef920004e08917961cff1b6572156fcfabcc8740dba",
+    "stores.csv": "53b4e9f2ee1f39104399e14560d10e46b646b2a5f7ec86dcbe60a92bdb9fa339",
+    "transactions.csv": "ef45eef4741236af3083a4d71668f10ec4357a512b7103161023367670e83de9"
+  }
+}
