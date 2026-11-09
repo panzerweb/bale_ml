@@ -1,5 +1,22 @@
 # App → model → app: first run and recurring workflow
 
+For a new backend developer's device, start with the
+[backend setup and API runthrough](BACKEND_RUNTHROUGH.md). It covers cloning both
+repositories, local Docker configuration, Colab handoff, import/activation,
+store-token testing, and files that are not transferred by Git.
+
+For a standalone synthetic run tied to existing backend logins, use
+`python scripts/prepare_backend_colab.py` after the backend's read-only
+`market-demand-export-catalog` command has supplied `inputs/backend_catalog.json`.
+This creates `colab_handoff/backend_catalog_demo/` with a configured notebook,
+an input ZIP, backend identity/unit mappings for the later import, and
+`START_HERE.md`. Upload the configured notebook in Colab, Run all, then select
+the input ZIP when prompted. No training sales are inserted into the database.
+The canonical notebook's model functions are preserved. This profile covers
+only the stores/categories actually present in the exported catalog; the
+full-city preset described below is a separate demonstration. Generated sales
+remain synthetic even though the catalog IDs and names come from the backend.
+
 This repository prepares and evaluates forecasts in Google Colab and includes an interactive demand preview. The backend and application are maintained in their separate repository. The notebook exports files for that team; it does not implement their importer or API.
 
 The notebook now starts with `DEMO_PRESET="panabo_50k"`: **50,000 synthetic sale lines across all 40 Panabo barangays**, 80 fictional stores, and four categories. History covers May 13–November 8, 2026; the preset forecasts November 9–15. Run all cells to generate/load the inputs and open the existing dashboard. The generator and geographic reference snapshot are embedded for standalone Colab use. See [dataset details and regeneration commands](demo_data/panabo_50k/README.md).
@@ -82,6 +99,16 @@ The minimum calendar span does not guarantee a group qualifies. The earliest 28 
 8. Download the results ZIP and your edited notebook before the temporary session ends.
 
 The notebook has no dependency on this repository once uploaded. Its first cell installs missing scientific libraries. Save the run's dependency versions and edited notebook to reproduce it later; installed Colab versions can differ between sessions.
+
+### Reading the results without a machine learning background
+
+Each evaluation table now explains the result immediately afterward. **MAE decides the method**: it is the average number of recorded units missed per daily area/category (or store/category) prediction. RMSE gives larger misses more weight and can favor a different model. You do not need to choose between the charts. The notebook names the validation choice, explains the later check against the strongest simple alternative, and states which method actually generates the forecast.
+
+Forecast previews include category names, column explanations, and a worked example from the current run. Empty prediction bounds are displayed as unavailable; this version does not calculate an uncertainty range. Every chart and map has reading guidance before it and observations afterward, including dashboard redraws. Feature usage describes inputs used by the selected model, not proven causes of sales changes.
+
+Read **Your complete result, before export**, directly above **Versioned export and trusted model reload**, for the dataset, model rankings, selected method, forecast highlights, and practical limits together. This summary is also included in `run_report.md`. Saved-model refreshes explicitly distinguish original evaluation scores from new forecasts, which have not yet been checked against future actual sales.
+
+The plain-language helpers live in `scripts/notebook_guidance.py`. After editing them, run `python scripts/sync_panabo_notebook.py`; use `--check` to verify the notebook's embedded copy. The notebook remains standalone. Regenerate configured backend demo notebooks with the existing handoff generator so they inherit these explanations.
 
 ### How evaluation works
 

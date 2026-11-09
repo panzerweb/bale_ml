@@ -12,6 +12,7 @@ import sys
 import uuid
 import shutil
 import unittest
+import warnings
 
 ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK = ROOT / "Panabo_Area_Demand_Forecastingg.ipynb"
@@ -174,6 +175,128 @@ class NotebookTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             ns["evaluation_windows"](self.cutoff-pd.Timedelta(days=60), self.cutoff)
         self.assertIsNone(ns["metrics"](pd.DataFrame({"actual_units":[0.], "predicted_units":[1.]}))["WAPE_pct"])
+
+    def test_guidance_explains_metric_disagreement_and_release(self):
+        records = [
+            {"method":"lightgbm", "MAE":6.5, "RMSE":8.6},
+            {"method":"random_forest", "MAE":6.6, "RMSE":8.5},
+            {"method":"weekday_average", "MAE":7.0, "RMSE":9.0}]
+        text = ns["validation_explanation"](pd.DataFrame(records))
+        self.assertIn("Validation choice: LightGBM", text)
+        self.assertIn("Lowest RMSE: Random Forest", text)
+        self.assertIn("you do not need to choose", text)
+        evaluation = {"mode":"train", "validation":records, "validation_selected_method":"lightgbm",
+                      "strongest_validation_baseline":"weekday_average",
+                      "final":[{"method":"lightgbm", "MAE":6.8}, {"method":"weekday_average", "MAE":7.0}]}
+        text = ns["evaluation_explanation"](evaluation, "lightgbm")
+        self.assertIn("reduced average error by 0.20 units (2.9%)", text)
+        evaluation["final"][0]["MAE"] = 7.0
+        self.assertIn("simple method instead", ns["evaluation_explanation"](evaluation, "weekday_average"))
+        evaluation["final"][1]["MAE"] = 0.
+        evaluation["final"][0]["MAE"] = 1.
+        self.assertNotIn("inf", ns["evaluation_explanation"](evaluation, "weekday_average"))
+        evaluation.update(validation_selected_method="weekday_average", final=[{"method":"weekday_average", "MAE":0.}])
+        self.assertIn("only that method", ns["evaluation_explanation"](evaluation, "weekday_average"))
+        tied = pd.DataFrame([{"method":"lightgbm", "MAE":1., "RMSE":2., "tie_priority":4},
+                             {"method":"last_week", "MAE":1., "RMSE":2., "tie_priority":0}])
+        self.assertIn("Validation choice: Repeat last week's sales", ns["validation_explanation"](tied))
+        self.assertIn("exact MAE tie", ns["validation_explanation"](tied))
+
+    def test_readable_forecasts_do_not_mutate_exports(self):
+        before = ns["CATEGORY_LABELS"]
+        try:
+            ns["CATEGORY_LABELS"] = {1:"Rice and Grains"}
+            forecast = ns["predict_seven"]("last_week", None, self.panel, self.cutoff)
+            forecast["category_id"] = "1"
+            forecast["lower_bound"] = None
+            forecast["upper_bound"] = None
+            original = forecast.copy(deep=True)
+            readable = ns["readable_table"](forecast)
+            self.assertTrue(readable.category_name.eq("Rice and Grains").all())
+            self.assertTrue(readable.lower_bound.eq("Unavailable").all())
+            pd.testing.assert_frame_equal(forecast, original)
+            self.assertIn("name unavailable", ns["category_label"]("999"))
+            text = ns["forecast_explanation"](forecast, "last_week")
+            self.assertIn("Rice and Grains", text)
+            self.assertIn("approximately", text)
+            self.assertIn("No forecast", ns["forecast_explanation"](forecast.iloc[:0], None))
+            self.assertIn("no tree feature-usage", ns["feature_usage"](None, "last_week")[1])
+            saved = {"mode":"forecast_only", "training_evaluation":{"final":[{"method":"last_week", "MAE":2.}]}}
+            text = ns["evaluation_explanation"](saved, "last_week")
+            self.assertIn("No new model comparison", text)
+            self.assertIn("earlier evaluation", text)
+        finally:
+            ns["CATEGORY_LABELS"] = before
+
+    def test_complete_summary_handles_saved_evidence_and_missing_comparisons(self):
+        forecast = ns["predict_seven"]("last_week", None, self.panel, self.cutoff)
+        saved = {"mode":"forecast_only", "model_training_end":"2026-10-01",
+                 "training_evaluation":{"final":[{"method":"last_week", "MAE":2.}]}}
+        unknown = {"mode":"train", "message":"Store evaluation unavailable."}
+        summary = ns["run_summary"](self.tx, self.panel, ns["eligibility"](self.panel, self.cutoff),
+            forecast, self.audit, saved, "last_week", self.cutoff, "synthetic", None, unknown, None)
+        self.assertIn("What this run tells you", summary)
+        self.assertIn("2026-10-01", summary)
+        self.assertIn("No new model comparison", summary)
+        self.assertIn("Store evaluation unavailable", summary)
+        self.assertIn("generated examples", summary)
+        self.assertIn("approximately", summary)
+        zero_panel = self.panel.copy()
+        zero_panel["units_sold"] = 0.
+        text = ns["run_summary"](self.tx, zero_panel, ns["eligibility"](zero_panel, self.cutoff),
+            forecast.iloc[:0], self.audit, unknown, "last_week", self.cutoff, "real", None)
+        self.assertIn("No forecast was produced", text)
+        self.assertIn("No complete positive previous-week comparison", text)
+        self.assertNotIn("generated examples", text)
+
+    def test_lightgbm_named_features_warning_and_reload(self):
+        import joblib
+        estimator = ns["fit_method"]("lightgbm", self.panel)
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always")
+            forecast = ns["predict_seven"]("lightgbm", estimator, self.panel, self.cutoff)
+        self.assertFalse(any("valid feature names" in str(w.message) for w in caught))
+        table, explanation = ns["feature_usage"](estimator, "lightgbm")
+        self.assertIn("Number of tree splits", table.columns)
+        self.assertIn("267 splits", explanation)
+        self.assertIn("not why a particular forecast", explanation)
+        with workspace_temp() as directory:
+            joblib.dump(estimator, directory/"model.joblib")
+            loaded = joblib.load(directory/"model.joblib")
+            with warnings.catch_warnings(record=True) as caught:
+                warnings.simplefilter("always")
+                repeated = ns["predict_seven"]("lightgbm", loaded, self.panel, self.cutoff)
+            self.assertFalse(any("valid feature names" in str(w.message) for w in caught))
+            pd.testing.assert_frame_equal(forecast, repeated)
+
+    def test_guided_charts_keep_selection_and_metric_scope_clear(self):
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        frames = []
+        for method in ns["TREE_METHODS"]:
+            f = ns["predict_seven"]("last_week", None, self.panel, self.cutoff)
+            f["actual_units"] = f.predicted_units + 1
+            f["method"] = method
+            frames.append(f)
+        predictions = pd.concat(frames, ignore_index=True)
+        first = predictions.iloc[0]
+        comparison = ns["compare_methods"](predictions)
+        figures = ns["comparison_figures"](predictions, comparison, predictions, self.panel,
+            frames[0], "random_forest", first.area_id, first.category_id, self.cutoff, "synthetic", {})
+        self.assertEqual(len(figures), 3)
+        self.assertIn("historical checks", figures[0]._bale_guide)
+        self.assertIn("all eligible combinations", figures[1]._bale_guide)
+        self.assertIn("not proven accuracy", figures[2]._bale_guide)
+        with contextlib.redirect_stdout(io.StringIO()) as captured:
+            from unittest.mock import patch
+            with patch("IPython.display.display", lambda *args:None):
+                for fig in figures:
+                    ns["show_guided_figure"](fig)
+        text = captured.getvalue()
+        self.assertEqual(text.count("How to read this chart:"), 3)
+        self.assertEqual(text.count("What this shows:"), 3)
+        plt.close("all")
 
     def test_conflict_withholding_respects_availability(self):
         end = self.cutoff-pd.Timedelta(days=40)
@@ -446,6 +569,7 @@ def execute_notebook():
             assert scope["verify_bundle"](scope["run_dir"])
             assert len(scope["forecast"]) == 42
             assert len(scope["store_forecast"]) == 126
+            assert "What this run tells you" in (scope["run_dir"]/"run_report.md").read_text(encoding="utf-8")
             for name in ["area_candidates", "store_candidates"]:
                 assert set(scope[name].method) == set(ns["TREE_METHODS"])
             # Exercise real Folium HTML generation without a browser or notebook kernel.
@@ -459,12 +583,13 @@ def execute_notebook():
             scope.update(MODE="forecast_only", GENERATE_DEMO=False, SAVED_MODEL_PATH=model_path,
                          SAVED_STORE_MODEL_PATH=store_model_path, FORECAST_CUTOFF="2026-10-31")
             for cell in nb["cells"]:
-                if cell["cell_type"] == "code" and set(cell["metadata"].get("tags", [])) & {"load","observations","evaluate","forecast","store_forecast","report","preview","export"}:
+                if cell["cell_type"] == "code" and set(cell["metadata"].get("tags", [])) & {"load","observations","evaluate","forecast","store_forecast","report","preview","summary","export"}:
                     exec(compile(cell["source"], str(NOTEBOOK), "exec"), scope)
             assert np.allclose(before, scope["forecast"].predicted_units)
             assert np.allclose(store_before, scope["store_forecast"].predicted_units)
             assert scope["area_candidates"].empty and scope["store_candidates"].empty
             assert scope["verify_bundle"](scope["run_dir"])
+            assert "No new model comparison or accuracy measurement" in (scope["run_dir"]/"run_report.md").read_text(encoding="utf-8")
             # Widget callbacks must redraw selections without fitting any model.
             scope["fit_method"] = lambda *a, **k: (_ for _ in ()).throw(AssertionError("Filter retrained a model"))
             preview = scope["dashboard_preview"](scope["panel"], scope["forecast"], scope["store_panel"], scope["store_forecast"],

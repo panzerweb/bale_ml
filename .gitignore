@@ -5,3 +5,6 @@ demo_data/*
 __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
+/inputs/backend_catalog.json
+/inputs/results/
+/colab_handoff/
